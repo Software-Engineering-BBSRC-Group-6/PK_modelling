@@ -28,9 +28,9 @@ times = np.linspace(tmin, tmax, num=npoints)
 
 
 def form_rhs_ib(maincmpt, peripherals, dose, clearance):
-""" Function factory to form the right-hand side of the PK ODE for IB model
+    """ Function factory to form the right-hand side of the PK ODE for IB model
 
-"""
+    """
 
     def rhs_ib(t, q):
         perfluxes = [(q[0] / maincmpt.volume - q[c+1] / p.volume) 
