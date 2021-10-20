@@ -3,7 +3,6 @@
 [![codecov](https://codecov.io/gh/Software-Engineering-BBSRC-Group-6/PK_modelling/branch/main/graph/badge.svg?token=gdzMuuonBd)](https://codecov.io/gh/Software-Engineering-BBSRC-Group-6/PK_modelling)
 [![Documentation Status](https://readthedocs.org/projects/pk-proj/badge/?version=latest)](https://pk-proj.readthedocs.io/en/latest/?badge=latest)
 
-
 # Pharmacokinetic Modelling Group Project
 
 A PK modelling function for analysis of solute dynamics over time
