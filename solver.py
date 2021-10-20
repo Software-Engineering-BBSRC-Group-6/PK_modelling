@@ -32,7 +32,7 @@ def form_rhs_ib(maincmpt, peripherals, dose, clearance):
     """
 
     def rhs_ib(t, q):
-        perfluxes = [(q[0] / maincmpt.volume - q[c+1] / p.volume) 
+        perfluxes = [(q[0] / maincmpt.volume - q[c+1] / p.volume)
             * p.transrate for c, p in enumerate(peripherals)]
 
         qcdot = np.array([dose(t) - q[0] / maincmpt.volume * clearance - sum(perfluxes)])
@@ -46,14 +46,10 @@ def form_rhs_ib(maincmpt, peripherals, dose, clearance):
 
 def form_rhs_sc(subcmpt, maincmpt, peripherals, dose, clearance):
     """ Function factory to form the right-hand side of the PK ODE for SC model
-<<<<<<< HEAD
-
-=======
->>>>>>> Updated solver.py
     """
 
     def rhs_sc(t, q):
-        perfluxes = [(q[1] / maincmpt.volume - q[c+2] / p.volume) 
+        perfluxes = [(q[1] / maincmpt.volume - q[c+2] / p.volume)
             * p.transrate for c, p in enumerate(peripherals)]
 
         q0dot = dose(t) - subcmpt.transrate * q[0]
@@ -83,14 +79,14 @@ if __name__ == '__main__':
         elif cmpt[2] == 'Sub' and model == 'sc':
             if 'subcmpt' in locals():
                 raise ValueError("Can't have two subcompartments.")
-            else: 
+            else:
                 subcmpt = Compartment(cmpt[0], cmpt[1], npoints)
-    
+
     if model == 'sc':
         # Form the SC RHS and solve the ODE.
         dqdt = form_rhs_sc(subcmpt, maincmpt, peripherals, dose, clearance)
         soln = solve_ivp(dqdt, [tmin, tmax], np.zeros(len(peripherals)+2), t_eval=times)
-        
+
         # This is currently broken, but it should allocate each part of the solution to its compartment.
         for c, q in enumerate(soln.y):
             if c == 0:
@@ -99,18 +95,18 @@ if __name__ == '__main__':
                 maincmpt.quantity[:] = q
             else:
                 peripherals[c-2].quantity[:] = q
-            
+
 
     if model == 'ib':
         # Form the IB RHS and solve the ODE.
         dqdt = form_rhs_ib(maincmpt, peripherals, dose, clearance)
         soln = solve_ivp(dqdt, [tmin, tmax], np.zeros(len(peripherals)+1), t_eval=times)
-    
+
         # This is currently broken, but it should allocate each part of the solution to its compartment.
         for c, q in enumerate(soln.y):
             if c == 0:
                 maincmpt.quantity[:] = q
             else:
                 peripherals[c-1].quantity[:] = q
-    
+
     pass
