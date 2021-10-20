@@ -1,6 +1,5 @@
 import numpy as np
 from scipy.integrate import solve_ivp
-import matplotlib.pyplot as plt
 from definitions import Compartment, form_rhs_ib, form_rhs_sc
 
 # Options
@@ -18,10 +17,10 @@ times = np.linspace(tmin, tmax, num=npoints)
 
 if __name__ == '__main__':
 
-    peripherals = [] # List for peripheral compartments
-    # Iterates through compartments. Adds peripherals to peripheral list, creates a main
-    # and optionally sub compartment (if in SC model). Doesn't allow multiple main/sub
-    # compartments.
+    peripherals = []  # List for peripheral compartments
+    # Iterates through compartments. Adds peripherals to peripheral list,
+    # creates main and optionally sub compartment (if in SC model).
+    # Doesn't allow multiple main/sub compartments.
     for cmpt in refcmpts:
         if cmpt[2] == 'Peripheral':
             peripherals.append(Compartment(cmpt[0], cmpt[1], npoints))
@@ -39,9 +38,10 @@ if __name__ == '__main__':
     if model == 'sc':
         # Form the SC RHS and solve the ODE.
         dqdt = form_rhs_sc(subcmpt, maincmpt, peripherals, dose, clearance)
-        soln = solve_ivp(dqdt, [tmin, tmax], np.zeros(len(peripherals)+2), t_eval=times)
+        soln = solve_ivp(dqdt, [tmin, tmax], np.zeros(len(peripherals)+2),
+                         t_eval=times)
 
-        # This is currently broken, but it should allocate each part of the solution to its compartment.
+        # Allocates each part of the solution to its compartment.
         for c, q in enumerate(soln.y):
             if c == 0:
                 subcmpt.quantity[:] = q
@@ -50,13 +50,13 @@ if __name__ == '__main__':
             else:
                 peripherals[c-2].quantity[:] = q
 
-
     if model == 'ib':
         # Form the IB RHS and solve the ODE.
         dqdt = form_rhs_ib(maincmpt, peripherals, dose, clearance)
-        soln = solve_ivp(dqdt, [tmin, tmax], np.zeros(len(peripherals)+1), t_eval=times)
+        soln = solve_ivp(dqdt, [tmin, tmax], np.zeros(len(peripherals)+1),
+                         t_eval=times)
 
-        # This is currently broken, but it should allocate each part of the solution to its compartment.
+        # Allocates each part of the solution to its compartment.
         for c, q in enumerate(soln.y):
             if c == 0:
                 maincmpt.quantity[:] = q
