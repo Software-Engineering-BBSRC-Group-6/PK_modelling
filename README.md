@@ -1,5 +1,7 @@
 # Pharmacokinetic Modelling Group Project
 
+A PK modelling function for analysis of solute dynamics over time
+
 ## Authors
 Amit Halkhoree - amit.halkhoree@dtc.ox.ac.uk \
 Cameron Anderson - cameron.anderson@dtc.ox.ac.uk \
