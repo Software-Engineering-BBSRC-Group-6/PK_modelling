@@ -5,9 +5,9 @@ name: Check installation and unit tests
 
 on:
   push:
-    branches: [ main, 0.1.2-dh ]
+    branches: [ main, *-dh ]
   pull_request:
-    branches: [ main, 0.1.2-dh ]
+    branches: [ main, *-dh ]
 
 jobs:
   build:
