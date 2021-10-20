@@ -35,18 +35,21 @@ def form_rhs_ib(maincmpt, peripherals, dose, clearance):
         perfluxes = [(q[0] / maincmpt.volume - q[c+1] / p.volume) 
             * p.transrate for c, p in enumerate(peripherals)]
 
-        qcdot = dose(t) - q[0] / maincmpt.volume * clearance - sum(perfluxes)
+        qcdot = np.array([dose(t) - q[0] / maincmpt.volume * clearance - sum(perfluxes)])
 
         qidot = np.array(perfluxes)
 
-        return np.array([qcdot, qidot])
+        return np.hstack((qcdot, qidot))
 
     return rhs_ib
 
 
 def form_rhs_sc(subcmpt, maincmpt, peripherals, dose, clearance):
     """ Function factory to form the right-hand side of the PK ODE for SC model
+<<<<<<< HEAD
 
+=======
+>>>>>>> Updated solver.py
     """
 
     def rhs_sc(t, q):
@@ -61,6 +64,7 @@ def form_rhs_sc(subcmpt, maincmpt, peripherals, dose, clearance):
 
         return np.array([q0dot, qcdot, qidot])
 
+    return rhs_sc
 
 if __name__ == '__main__':
 
@@ -94,7 +98,7 @@ if __name__ == '__main__':
             elif c == 1:
                 maincmpt.quantity[:] = q
             else:
-                peripherals[c].quantity[:] = q
+                peripherals[c-2].quantity[:] = q
             
 
     if model == 'ib':
@@ -107,4 +111,6 @@ if __name__ == '__main__':
             if c == 0:
                 maincmpt.quantity[:] = q
             else:
-                peripherals[c].quantity[:] = q
+                peripherals[c-1].quantity[:] = q
+    
+    pass
