@@ -5,9 +5,9 @@ name: Check Systems Compatability
 
 on:
   push:
-    branches: [ main,  0.1.5-d ]
+    branches: [ main,  0.1.5-dh ]
   pull_request:
-    branches: [ main,  0.1.5-d ]
+    branches: [ main,  0.1.5-dh ]
 
 jobs:
   build:
