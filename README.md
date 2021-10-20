@@ -1,4 +1,5 @@
 [![Python application](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/run-unittests.yml/badge.svg)](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/run-unittests.yml)
+[![Check systems capacity](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/check-systems-compat.yml/badge.svg)](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/check-systems-compat.yml)
 
 # Pharmacokinetic Modelling Group Project
 
