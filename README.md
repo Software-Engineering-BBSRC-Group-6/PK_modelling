@@ -8,6 +8,8 @@
 
 A PK modelling function for analysis of solute dynamics over time
 
+Full documentation at https://pk-proj.readthedocs.io/en/latest/ 
+
 ## Authors
 Amit Halkhoree - amit.halkhoree@dtc.ox.ac.uk \
 Cameron Anderson - cameron.anderson@dtc.ox.ac.uk \
