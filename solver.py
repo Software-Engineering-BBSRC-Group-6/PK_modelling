@@ -46,7 +46,6 @@ def form_rhs_ib(maincmpt, peripherals, dose, clearance):
 
 def form_rhs_sc(subcmpt, maincmpt, peripherals, dose, clearance):
     """ Function factory to form the right-hand side of the PK ODE for SC model
-
     """
 
     def rhs_sc(t, q):
