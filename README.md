@@ -1,3 +1,5 @@
+[![Python application](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/run-unittests.yml/badge.svg)](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/run-unittests.yml)
+
 # Pharmacokinetic Modelling Group Project
 
 A PK modelling function for analysis of solute dynamics over time
