@@ -5,9 +5,9 @@ name: Check systems capacity
 
 on:
   push:
-    branches: [ main]
+    branches: [ main, 0.1.2-dh ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, 0.1.2-dh ]
 
 jobs:
   build:
