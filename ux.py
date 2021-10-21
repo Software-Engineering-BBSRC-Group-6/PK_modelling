@@ -23,7 +23,7 @@ def user_input():
     """
     #Error messages
     num_invalid = "Invalid input, please insert a valid number"
-    str_invalid = "Invalid input, please try again following the conventions requested"
+    str_invalid = "Invalid input, please try again following the input conventions requested"
 
     #Model Type
     model_type = input("What kind of models do you want to build? (intravenous bolous (ib) / subcutaneous (sc))")
@@ -90,6 +90,18 @@ def user_input():
 
         main_compart = input("Enter volume (L), transition rate () for the main compartment (all seperated by spaces - eg: 5 25 )")
         main_compart_split = main_compart.split()
+        is_int = all(isinstance(n, int) for n in main_compart_split)
+        while is_int == False:
+            print(str_invalid)
+            main_compart = None
+            main_compart_split = None
+            main_compart = input("Enter volume (L), transition rate () for the main compartment (all seperated by spaces - eg: 5 25 )")
+            main_compart_split = main_compart.split()
+            is_int = all(isinstance(n, int) for n in main_compart_split)
+
+
+
+
         main_compart_split.append(str("Main"))
         compartments.append(main_compart_split)
 
