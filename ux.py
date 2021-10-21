@@ -8,11 +8,14 @@ import time
 
 def user_input():
     """
-    This requests user input via the command line, and then returns the requrested arguments in a dictionary
+    This requests user input via the command line, and then returns
+    the requested arguments in a dictionary
 
     Variables:
-    model_type: Decides which model is build. This should return either intravenous bolous, subcutaenous or both
-    compound: Allows the user to specify what the compound is. Useful for reporting back and for ease of understanding
+    model_type: Decides which model is build. This should return either
+    intravenous bolous, subcutaenous or both
+    compound: Allows the user to specify what the compound is. Useful for
+    reporting back and for ease of understanding
     dose: Dose of compound used in ng per hour
     len_assay: Length of time should the simulation be computed across in hours
     len_interval: Granularity of time series in hours
@@ -22,40 +25,49 @@ def user_input():
 
     """
     print("Hello! This script builds a pharmacokinetic model.")
-    model_type = input("What kind of models do you want to build? (intravenous bolous (ib) / subcutaneous (sc))")
+    model_type = input("What kind of models do you want to build? ",
+                       "(intravenous bolus (ib) / subcutaneous (sc))")
     compound = input("What compound or drug are you using?")
-    dose_type = input("How is the dose delivered? Constantly over time (c), Instantaneously (i) or Repeated instantaneous doses (r)")
+    dose_type = input("How is the dose delivered? Constantly over time (c), ",
+                      "Instantaneously (i) or Repeated instantaneous ",
+                      "doses (r)")
 
     if dose_type == 'c':
-        dose =  input("What is the dose of " + compound + " that you want to test? (units in ng per hour)")
+        dose = input("What is the dose of " + compound + " that you want to",
+                     " test? (units in ng per hour)")
         dose_mass = None
         time_dose = None
         num_dose = None
     elif dose_type == 'i':
-        dose_mass =  input("What is the mass of the dose of " + compound + " that you want to test? (units in ng)")
+        dose_mass = input("What is the mass of the dose of " + compound + " that you want to test? (units in ng)")
         dose = None
         time_dose = None
         num_dose = None
     elif dose_type == 'r':
-        dose_mass =  input("What is the mass of the dose of " + compound + " that you want to test? (units in ng)")
-        time_dose = input("What time period are the doses given over? (units in hours")
-        num_dose = input("How many doses are given? - this program assumes that doses are evenly spaced throughout the time period.")
+        dose_mass = input("What is the mass of the dose of " + compound +
+                          " that you want to test? (units in ng)")
+        time_dose = input("What time period are the doses given over? ",
+                          "(units in hours")
+        num_dose = input("How many doses are given? - this program assumes ",
+                         "that doses are evenly spaced throughout the time",
+                         " period.")
         dose = None
-    
     len_assay = input("Assay time? (units in hours)")
     len_interval = input("What interval time would you like? (units in hours)")
     clearance = input("What is the clearance time? (units in hours)")
-    
     compartments = []
     
     if model_type == "ib":
 
-        main_compart = input("Enter volume (L), transition rate () for the main compartment (all seperated by spaces - eg: 5 25 )")
+        main_compart = input("Enter volume (L), transition rate () for"
+                             " the main compartment (all seperated by "
+                             "spaces - eg: 5 25 )")
         main_compart_split = main_compart.split()
         main_compart_split.append(str("Main"))
         compartments.append(main_compart_split)
 
-        num_peripherals = input("How many peripheral compartments do you want to test?")
+        num_peripherals = input("How many peripheral compartments "
+                                "do you want to test?")
         
         num_peripherals = int(num_peripherals)
 
