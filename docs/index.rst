@@ -10,8 +10,7 @@ Welcome to PK Project's documentation!
    :maxdepth: 2
    :caption: Contents: quickstart
 
-
-Add some text here
+A Pharmacokinetic modelling platform designed to plot solute dynamics in tissues of interest
 
 Indices and tables
 ==================
