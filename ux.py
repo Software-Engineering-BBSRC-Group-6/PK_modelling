@@ -21,13 +21,29 @@ def user_input():
     vis: Specifies if the user wants a graph generated or just a table output
 
     """
-    print("Hello! This script builds a pharmacokinetic model.")
+    #Error messages
+    num_invalid = "Invalid input, please insert a valid number"
+    str_invalid = "Invalid input, please try again following the conventions requested"
+
+    #Model Type
     model_type = input("What kind of models do you want to build? (intravenous bolous (ib) / subcutaneous (sc))")
+    while model_type not in {'ib', 'IB', 'Ib', 'iB', 'sc','SC','Sc','sC'}:
+        print(str_invalid)
+        model_type = input("What kind of models do you want to build? (intravenous bolous (ib) / subcutaneous (sc))")
+
+    #Compound
     compound = input("What compound or drug are you using?")
+    
+    #Dose Type
     dose_type = input("How is the dose delivered? Constantly over time (c), Instantaneously (i) or Repeated instantaneous doses (r)")
+    dose_type = dose_type.lower()
+    while dose_type not in {"c","i","r"}:
+        print(str_invalid)
+        dose_type = input("How is the dose delivered? Constantly over time (c), Instantaneously (i) or Repeated instantaneous doses (r)")
+        dose_type = dose_type.lower()
 
     if dose_type == 'c':
-        dose =  input("What is the dose of " + compound + " that you want to test? (units in ng per hour)")
+        dose =  float(input("What is the dose of " + compound + " that you want to test? (units in ng per hour)"))
         dose_mass = None
         time_dose = None
         num_dose = None
@@ -42,10 +58,32 @@ def user_input():
         num_dose = input("How many doses are given? - this program assumes that doses are evenly spaced throughout the time period.")
         dose = None
     
-    len_assay = input("Assay time? (units in hours)")
-    len_interval = input("What interval time would you like? (units in hours)")
-    clearance = input("What is the clearance time? (units in hours)")
+    #Length of simulation time
+    while True:
+        try:
+            len_assay = float(input("What time period would you like to simluate the model? (units in hours)"))
+            break
+        except:
+	        print(num_invalid)
     
+    #Interval times
+    while True:
+        try:
+            len_interval = float(input("What interval time would you like in the simulation? (units in hours)"))
+            break
+        except:
+            print(num_invalid)
+
+    #clearance
+    while True:
+        try:
+            clearance = float(input("What is the clearance rate? (units in volume per hour)"))
+            break
+        except:
+            print(num_invalid)
+
+    
+    #compartments
     compartments = []
     
     if model_type == "ib":
@@ -88,9 +126,10 @@ def user_input():
                 compart_list = compart.split()
                 compartments.append(compart_list)
 
-
+    #visualisation
     vis = input("Would you like to generate a graph? (Y/N)")
 
+    #unix timestamp
     curr_datetime = time.time()
     curr_datetime = str(curr_datetime)
 
