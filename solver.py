@@ -6,15 +6,15 @@ from definitions import Compartment, form_rhs_ib, form_rhs_sc, write_solution_fi
 parameterdict = {
     'refcmpts': [[1, 1, 'Peripheral'], [1, 0.5, 'Main'], [1, 0.2, 'Sub']],
     'dose': lambda x: 1 / (1 + x ** 2),
-    'model': 'sc',
+    'model_type': 'sc',
     'clearance': 0.1,
-    'tmin': 0,
-    'tmax': 72,
-    'check_interval': 0.25,
+    'len_assay': 72,
+    'len_interval': 0.25,
+    'nowstr': 'testrun',
 }
 
 
-def generate_times(tmin, tmax, check_interval):
+def generate_times(tmax, check_interval):
     """Generates an array of times to be checked
     by the solver.
 
@@ -30,8 +30,8 @@ def generate_times(tmin, tmax, check_interval):
     data points are wanted from the solver.
     :type times: numpy array
     """
-    npoints = int((tmax - tmin) / check_interval) + 1
-    times = np.linspace(tmin, tmax, num=npoints)
+    npoints = int(tmax  / check_interval) + 1
+    times = np.linspace(tmax, num=npoints)
     return times
 
 
@@ -69,19 +69,20 @@ def generate_compartments(refcmpts):
     return maincmpt, peripherals, subcmpt
 
 
-def get_solution(model, subcmpt, maincmpt, peripherals, dose, clearance):
+def get_solution(model, subcmpt, maincmpt,
+                 peripherals, dose, clearance, times):
     """"""
 
     if model == 'sc':
         # Form the SC RHS and solve the ODE.
         dqdt = form_rhs_sc(subcmpt, maincmpt, peripherals, dose, clearance)
-        soln = solve_ivp(dqdt, [tmin, tmax], np.zeros(len(peripherals)+2),
+        soln = solve_ivp(dqdt, [0, times[-1:]], np.zeros(len(peripherals)+2),
                          t_eval=times)
 
     elif model == 'ib':
         # Form the IB RHS and solve the ODE.
         dqdt = form_rhs_ib(maincmpt, peripherals, dose, clearance)
-        soln = solve_ivp(dqdt, [tmin, tmax], np.zeros(len(peripherals)+1),
+        soln = solve_ivp(dqdt, [0, times[-1:]], np.zeros(len(peripherals)+1),
                          t_eval=times)
 
     else:
@@ -89,11 +90,13 @@ def get_solution(model, subcmpt, maincmpt, peripherals, dose, clearance):
 
     return soln
 
-def build_and_solve_model(parameterdict):
-
-    times = generate_times(tmin, tmax, check_interval)
-    maincmpt, peripherals, subcmpt = generate_compartments(refcmpts)
-    soln = get_solution(model, subcmpt, maincmpt, peripherals, dose, clearance)
-    solutionmat = write_solution_file(soln, model, nowstr)
+def build_and_solve_model(pdict):
+    """Write this docstring.
+    """
+    times = generate_times(pdict['len_assay'], pdict['len_interval'])
+    maincmpt, peripherals, subcmpt = generate_compartments(pdict['compartments'])
+    soln = get_solution(pdict['model'], subcmpt, maincmpt, peripherals,
+                        pdict['dose'], pdict['clearance'], times)
+    solutionmat = write_solution_file(soln, pdict['model'], pdict['nowstr'])
 
     return solutionmat
