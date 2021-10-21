@@ -37,6 +37,12 @@ def generate_times(tmax, check_interval):
     data points are wanted from the solver.
     :type times: numpy array
     """
+    if check_interval == 0:
+        raise ValueError('Cannot divide by zero.')
+    elif tmax == 0:
+        raise ValueError('Assay cannot last zero time.')
+    elif not (tmax / check_interval).is_integer():
+        raise ValueError('Must be able to output an integer number of times.')
     npoints = int(tmax / check_interval) + 1
     times = np.linspace(tmax, num=npoints)
     return times
@@ -101,7 +107,7 @@ def get_solution(model, subcmpt, maincmpt,
     return soln
 
 
-def build_and_solve_model(filename):
+def build_and_solve_model(filename, dosing_function):
     """Write this docstring.
     """
     jsonfile = open(filename,)
@@ -111,7 +117,8 @@ def build_and_solve_model(filename):
     times = generate_times(pdict['len_assay'], pdict['len_interval'])
     main, periph, sub = generate_compartments(pdict['compartments'])
     soln = get_solution(pdict['model'], sub, main, periph,
-                        pdict['dose'], pdict['clearance'], times)
-    solutionfile = write_solution_file(soln, pdict['model'], pdict['nowstr'])
+                        dosing_function, pdict['clearance'], times)
+    
+    write_solution_file(soln, pdict['model'], pdict['curr_datetime'])
 
-    return './data/{0}-{1}.csv'.format(model, timestamp)
+    return './data/{0}-{1}.csv'.format(pdict['model'], pdict['curr_datetime'])
