@@ -44,7 +44,7 @@ def generate_times(tmax, check_interval):
     elif not (tmax / check_interval).is_integer():
         raise ValueError('Must be able to output an integer number of times.')
     npoints = int(tmax / check_interval) + 1
-    times = np.linspace(tmax, num=npoints)
+    times = np.linspace(0, tmax, num=npoints)
     return times
 
 
@@ -56,7 +56,7 @@ def generate_compartments(parameterdict):
     :type refcmpts:
     """
 
-    refcmpts, model = [parameterdict[i] for i in ['refcmpts', 'model']]
+    refcmpts, model = parameterdict['compartments'], parameterdict['model_type']
 
     peripherals = []  # List for peripheral compartments
     # Iterates through compartments. Adds peripherals to peripheral list,
@@ -77,7 +77,7 @@ def generate_compartments(parameterdict):
                 raise ValueError("Can't have two subcompartments.")
             else:
                 subcmpt = Compartment(cmpt[0], cmpt[1])
-        if subcmpt not in locals():
+        if 'subcmpt' not in locals():
             subcmpt = None
 
     return maincmpt, peripherals, subcmpt
@@ -115,10 +115,10 @@ def build_and_solve_model(filename, dosing_function):
     jsonfile.close()
 
     times = generate_times(pdict['len_assay'], pdict['len_interval'])
-    main, periph, sub = generate_compartments(pdict['compartments'])
-    soln = get_solution(pdict['model'], sub, main, periph,
+    main, periph, sub = generate_compartments(pdict)
+    soln = get_solution(pdict['model_type'], sub, main, periph,
                         dosing_function, pdict['clearance'], times)
 
-    write_solution_file(soln, pdict['model'], pdict['curr_datetime'])
+    write_solution_file(soln, pdict['model_type'], pdict['curr_datetime'])
 
-    return './data/{0}-{1}.csv'.format(pdict['model'], pdict['curr_datetime'])
+    return './data/{0}-{1}.csv'.format(pdict['model_type'], pdict['curr_datetime'])
