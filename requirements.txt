@@ -20,4 +20,3 @@ requests==2.26.0
 scipy==1.7.1
 six==1.16.0
 toml==0.10.2
-json
