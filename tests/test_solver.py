@@ -1,23 +1,14 @@
-import numpy.testing as npt
-
 from definitions import Compartment, form_rhs_ib
 from solver import calc_dose
 
 print("Running some unit tests")
 
-# @pytest.mark.parametrize(
-#     "test, expected,raise",
-#     ([[1, 1, 100], [1], None]),
-#     ([[-1, 1, 100], [-1], ValueError]),
-# )
-
 
 def test_class():
     print("Testing class initialisation")
-    t = Compartment(1, 1, 100)
+    t = Compartment(1, 1)
     assert t.volume == 1
     assert t.transrate == 1
-    npt.assert_almost_equal(t.quantity/t.volume, t.concentration, decimal=2)
 
 
 def test_form_rhs_ib():

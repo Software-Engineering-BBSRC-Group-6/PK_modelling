@@ -8,26 +8,13 @@ class Compartment():
     :type volume: float
     :param transrate: Transition rate out of a given compartment
     :type transrate: float
-    :param npoints: Used to define an empty array of the correct
-    size where the solution will be placed.
     """
-    def __init__(self, volume, transrate_out, npoints):
-        if volume < 0:
-            raise ValueError("Volume must be >= 0")
-        # if type(volume) != float :
-        #     raise TypeError("Volume must be a float")
+
+    def __init__(self, volume, transrate_out):
         self.volume = volume
         self.transrate = transrate_out
-        self.quantity = np.empty((npoints,))
-
-    @property
-    def concentration(self):
-        """Finds the concentration by mass at all times.
-
-        :return concentration: Concentration by mass of the drug in
-        this compartment.
-        """
-        return (self.quantity / self.volume)
+        if volume < 0:
+            raise ValueError("Volume must be >= 0")
 
 
 def form_rhs_ib(maincmpt, peripherals, dose, clearance):
@@ -47,7 +34,7 @@ def form_rhs_ib(maincmpt, peripherals, dose, clearance):
     """
 
     def rhs_ib(t, q):
-        """ Returns the right-hand side of the ODE for the IB model, including
+        """Returns the right-hand side of the ODE for the IB model, including
         the parameters of the various compartments.
 
         :param t: time
@@ -87,7 +74,7 @@ def form_rhs_sc(subcmpt, maincmpt, peripherals, dose, clearance):
     """
 
     def rhs_sc(t, q):
-        """ Returns the right-hand side of the ODE for the SC model, including
+        """Returns the right-hand side of the ODE for the SC model, including
         the parameters of the various compartments.
 
         :param t: time
@@ -110,6 +97,38 @@ def form_rhs_sc(subcmpt, maincmpt, peripherals, dose, clearance):
 
         qidot = np.array(perfluxes)
 
-        return np.array([q0dot, qcdot, qidot])
+        return np.hstack((q0dot, qcdot, qidot))
 
     return rhs_sc
+
+
+def write_solution_file(solution, model, timestamp):
+    """Puts the scipy solution into a data file for reading by the visualiser.
+
+    :param solution: solution from scipy solve_ivp().
+    :type solution: bunch
+    :param model: type of model, one of 'sc' or 'ib' as defined earlier by
+     user.
+    :type model: string
+    :param timestamp: time at which the solver was run, used to identify a
+     given run.
+    :type timestamp:  string
+
+    :return solutionmat: Contains timeseries data, and solutions for each
+    compartment.
+    :type solutionmat: Numpy array
+    """
+
+    if model == 'sc':
+        solutionmat = np.hstack((solution.t[:, np.newaxis],
+                                np.transpose(solution.y)))
+
+    elif model == 'ib':
+        solutionmat = np.hstack((solution.t[:, np.newaxis],
+                                np.zeros((len(solution.t), 1)),
+                                np.transpose(solution.y)))
+
+    np.savetxt('./data/{0}-{1}.csv'.format(model, timestamp), solutionmat,
+               delimiter=',')
+
+    return solutionmat
