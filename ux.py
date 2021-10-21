@@ -1,5 +1,5 @@
 # USER INTERFACE SCRIPT
-# 
+#
 # This script runs the user through a series of questions
 # and then returns a json with the answers to be solved
 import json
@@ -41,13 +41,13 @@ def user_input():
         time_dose = input("What time period are the doses given over? (units in hours")
         num_dose = input("How many doses are given? - this program assumes that doses are evenly spaced throughout the time period.")
         dose = None
-    
+
     len_assay = input("Assay time? (units in hours)")
     len_interval = input("What interval time would you like? (units in hours)")
     clearance = input("What is the clearance time? (units in hours)")
-    
+
     compartments = []
-    
+
     if model_type == "ib":
 
         main_compart = input("Enter volume (L), transition rate () for the main compartment (all seperated by spaces - eg: 5 25 )")
@@ -56,7 +56,7 @@ def user_input():
         compartments.append(main_compart_split)
 
         num_peripherals = input("How many peripheral compartments do you want to test?")
-        
+
         num_peripherals = int(num_peripherals)
 
         if num_peripherals > 0:
@@ -65,7 +65,7 @@ def user_input():
                 compart = input("Enter volume (L), transition rate (), name of compartment (all seperated by spaces - eg: 5 25 upper-lung)")
                 compart_list = compart.split()
                 compartments.append(compart_list)
-    
+
     elif model_type == "sc":
 
         sub_compart = input("Enter volume (L), transition rate () for the sub compartment (all seperated by spaces - eg: 5 25 )")
@@ -99,17 +99,17 @@ def user_input():
 
 
     return {
-        'model_type': model_type, 
-        'compound': compound, 
+        'model_type': model_type,
+        'compound': compound,
         'dose_type': dose_type,
         'dose':dose,
         'dose_mass': dose_mass,
         'time_dose': time_dose,
         'num_dose': num_dose,
-        'len_assay':len_assay, 
-        'len_interval':len_interval, 
-        'clearance':clearance, 
-        'compartments':compartments, 
+        'len_assay':len_assay,
+        'len_interval':len_interval,
+        'clearance':clearance,
+        'compartments':compartments,
         'vis':vis,
         'curr_datetime':curr_datetime
         }
@@ -130,7 +130,7 @@ def param_to_file():
 
 def num_models():
     """
-    Defines how many modeles will be tested 
+    Defines how many modeles will be tested
     """
     N = input("How many models would you like to test?")
     N = int(N)
