@@ -118,7 +118,7 @@ def build_and_solve_model(filename, dosing_function):
     main, periph, sub = generate_compartments(pdict['compartments'])
     soln = get_solution(pdict['model'], sub, main, periph,
                         dosing_function, pdict['clearance'], times)
-    
+
     write_solution_file(soln, pdict['model'], pdict['curr_datetime'])
 
     return './data/{0}-{1}.csv'.format(pdict['model'], pdict['curr_datetime'])
