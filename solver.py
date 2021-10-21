@@ -5,6 +5,7 @@ import json
 
 # Options - to be replaced with file read-in from json.
 
+
 def calc_dose(x):
     return 1 / (1 + x ** 2)
 
@@ -99,6 +100,7 @@ def get_solution(model, subcmpt, maincmpt,
 
     return soln
 
+
 def build_and_solve_model(filename):
     """Write this docstring.
     """
@@ -109,4 +111,4 @@ def build_and_solve_model(filename):
                         pdict['dose'], pdict['clearance'], times)
     solutionfile = write_solution_file(soln, pdict['model'], pdict['nowstr'])
 
-    return solutionfile
+    return './data/{0}-{1}.csv'.format(model, timestamp)
