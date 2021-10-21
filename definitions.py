@@ -15,14 +15,6 @@ class Compartment():
         self.volume = volume
         self.transrate = transrate_out
 
-    @property
-    def concentration(self):
-        """Finds the concentration by mass at all times.
-
-        :return concentration: Concentration by mass of the drug in
-        this compartment.
-        """
-        return (self.quantity / self.volume)
 
 
 def form_rhs_ib(maincmpt, peripherals, dose, clearance):
