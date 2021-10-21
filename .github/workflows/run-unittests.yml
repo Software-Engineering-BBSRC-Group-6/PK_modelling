@@ -5,9 +5,9 @@ name: Install Dependencies and Run Unit Tests
 
 on:
   push:
-    branches: [ main, 0.1.6-dh ]
+    branches: [ main, 0.1.5-dh ]
   pull_request:
-    branches: [ main, 0.1.6-dh ]
+    branches: [ main, 0.1.5-dh ]
 
 jobs:
   build:
