@@ -42,7 +42,7 @@ if __name__ == '__main__':
 
     if model == 'sc':
         # Form the SC RHS and solve the ODE.
-        dqdt = form_rhs_sc(subcmpt, maincmpt, peripherals, 
+        dqdt = form_rhs_sc(subcmpt, maincmpt, peripherals,
                            calc_dose, clearance)
         soln = solve_ivp(dqdt, [tmin, tmax], np.zeros(len(peripherals)+2),
                          t_eval=times)

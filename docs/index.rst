@@ -8,7 +8,7 @@ Welcome to PK Project's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Contents: quickstart
 
 
 Add some text here

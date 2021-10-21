@@ -12,6 +12,10 @@ class Compartment():
     size where the solution will be placed.
     """
     def __init__(self, volume, transrate_out, npoints):
+        if volume < 0:
+            raise ValueError("Volume must be >= 0")
+        # if type(volume) != float :
+        #     raise TypeError("Volume must be a float")
         self.volume = volume
         self.transrate = transrate_out
         self.quantity = np.empty((npoints,))
