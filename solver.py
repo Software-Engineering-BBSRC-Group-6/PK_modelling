@@ -41,7 +41,7 @@ def generate_times(tmax, check_interval):
     elif not (tmax / check_interval).is_integer():
         raise ValueError('Must be able to output an integer number of times.')
     npoints = int(tmax / check_interval) + 1
-    times = np.linspace(tmax, num=npoints)
+    times = np.linspace(0, tmax, num=npoints)
     return times
 
 
