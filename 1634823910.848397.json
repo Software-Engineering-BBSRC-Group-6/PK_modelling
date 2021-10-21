@@ -1,1 +1,0 @@
-{"model_type": "ib", "compound": "paracetamol", "dose_type": "c", "dose": "0.5", "dose_mass": null, "time_dose": null, "num_dose": null, "len_assay": "72", "len_interval": "0.25", "clearance": "0.4", "compartments": [["1", "0.8", "Main"], ["0.5", "0.4"]], "vis": "y", "curr_datetime": "1634823910.848397"}
