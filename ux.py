@@ -43,19 +43,46 @@ def user_input():
         dose_type = dose_type.lower()
 
     if dose_type == 'c':
-        dose =  float(input("What is the dose of " + compound + " that you want to test? (units in ng per hour): "))
+        while True:
+            try:
+                dose =  float(input("What is the dose of " + compound + " that you want to test? (units in ng per hour): "))
+                break
+            except:
+                print(num_invalid)
         dose_mass = None
         time_dose = None
         num_dose = None
+        
     elif dose_type == 'i':
-        dose_mass =  input("What is the mass of the dose of " + compound + " that you want to test? (units in ng): ")
+        while True:
+            try:
+                dose_mass =  float(input("What is the mass of the dose of " + compound + " that you want to test? (units in ng): "))
+                break
+            except:
+                print(num_invalid)
         dose = None
         time_dose = None
         num_dose = None
+
     elif dose_type == 'r':
-        dose_mass =  input("What is the mass of the dose of " + compound + " that you want to test? (units in ng): ")
-        time_dose = input("What time period are the doses given over? (units in hours): ")
-        num_dose = input("How many doses are given? - this program assumes that doses are evenly spaced throughout the time period: ")
+        while True:
+            try:
+                dose_mass =  float(input("What is the mass of the dose of " + compound + " that you want to test? (units in ng): "))
+                break
+            except:
+                print(num_invalid)
+        while True:
+            try:
+                time_dose = float(input("What time period are the doses given over? (units in hours): "))
+                break
+            except:
+                print(num_invalid)
+        while True:
+            try:
+                num_dose = float(input("How many doses are given? - this program assumes that doses are evenly spaced throughout the time period: "))
+                break
+            except:
+                print(num_invalid)
         dose = None
     
     #Length of simulation time
