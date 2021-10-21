@@ -1,13 +1,13 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Check installation and unit tests
+name: Install Dependencies and Run Unit Tests
 
 on:
   push:
-    branches: [ main]
+    branches: [ main, 0.1.5-dh ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, 0.1.5-dh ]
 
 jobs:
   build:
@@ -27,3 +27,13 @@ jobs:
     - name: Run PyTest
       run: |
         python -m pytest tests/test_solver.py
+    - name: Check coverage
+      run: |
+        coverage run -m pytest
+    - name: Run codecov
+      if: success()
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      run: |
+        codecov
+        
