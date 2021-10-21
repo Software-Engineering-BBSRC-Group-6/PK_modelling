@@ -2,14 +2,12 @@ import numpy as np
 
 
 class Compartment():
-    """ Compartment describes an individual compartment in either model type.
+    """Compartment describes an individual compartment in either model type.
 
     :param volume: Volume of compartment
     :type volume: float
     :param transrate: Transition rate out of a given compartment
     :type transrate: float
-    :param npoints: Used to define an empty array of the correct
-    size where the solution will be placed.
     """
     def __init__(self, volume, transrate_out):
         self.volume = volume

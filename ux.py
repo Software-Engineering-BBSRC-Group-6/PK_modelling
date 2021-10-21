@@ -44,16 +44,16 @@ def user_input():
     print("Thank you! Building model, please wait...")
 
     return {
-        'len_model_type': len_model_type, 
-        'model_type': model_type, 
-        'compound': compound, 
-        'dose':dose, 
-        'len_assay':len_assay, 
-        'len_interval':len_interval, 
-        'clearance':clearance, 
-        'len_compartments':len_compartments, 
-        'compartments':compartments, 
-        'vis':vis
+        'len_model_type': len_model_type,
+        'model_type': model_type,
+        'compound': compound,
+        'dose': dose,
+        'len_assay': len_assay,
+        'len_interval': len_interval,
+        'clearance': clearance,
+        'len_compartments': len_compartments,
+        'compartments': compartments,
+        'vis': vis
         }
 
 def param_to_file():
