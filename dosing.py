@@ -32,7 +32,7 @@ class InstantDose(Dose):
     :type mass: float
     """
     def __init__(self, num_applications, interval, mass):
-        Dose.__init__.super(self, num_applications, interval)
+        super().__init__(num_applications, interval)
         self.mass = mass
 
     def construct(self):
@@ -62,7 +62,7 @@ class ConstantDose(Dose):
     :type rate: float
     """
     def __init__(self, num_applications, interval, rate):
-        Dose.__init__.super(self, num_applications, interval)
+        super().__init__(num_applications, interval)
         self.rate = rate
 
     def construct(self):
@@ -74,7 +74,11 @@ class ConstantDose(Dose):
 
 
 def build_dose(filename):
-    pdict = json.load(filename)
+
+    jsonfile = open(filename,)
+    pdict = json.load(jsonfile)
+    jsonfile.close()
+
     if pdict['dose_type'] == 'c':
         doseprotocol = ConstantDose(1, 0, pdict['dose'])
 
