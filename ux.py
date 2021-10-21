@@ -27,9 +27,11 @@ def user_input():
 
     #Model Type
     model_type = input("What kind of models do you want to build? (intravenous bolous (ib) / subcutaneous (sc)): ")
-    while model_type not in {'ib', 'IB', 'Ib', 'iB', 'sc','SC','Sc','sC'}:
+    model_type = model_type.lower()
+    while model_type not in {'ib', 'sc'}:
         print(str_invalid)
         model_type = input("What kind of models do you want to build? (intravenous bolous (ib) / subcutaneous (sc)): ")
+        model_type = model_type.lower()
 
     #Compound
     compound = input("What compound or drug are you using?")
@@ -148,7 +150,7 @@ def user_input():
                     except:
                         print(str_invalid)
 
-                compart_list.append(str(input("Please enter the name of the compartment: ")))
+                compart_list.append(str(input("Please enter the name of the compartment (please ensure correct spelling): ")))
                 compartments.append(compart_list)
                 compart_list = None
     
@@ -200,7 +202,7 @@ def user_input():
                     except:
                         print(str_invalid)
 
-                compart_list.append(str(input("Please enter the name of the compartment: ")))
+                compart_list.append(str(input("Please enter the name of the compartment (please ensure correct spelling): ")))
                 compartments.append(compart_list)
                 compart_list = None
 
