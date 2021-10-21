@@ -99,6 +99,7 @@ def user_input():
 
 
     return {
+<<<<<<< HEAD
         'model_type': model_type, 
         'compound': compound, 
         'dose_type': dose_type,
@@ -112,6 +113,18 @@ def user_input():
         'compartments':compartments, 
         'vis':vis,
         'curr_datetime':curr_datetime
+=======
+        'len_model_type': len_model_type,
+        'model_type': model_type,
+        'compound': compound,
+        'dose': dose,
+        'len_assay': len_assay,
+        'len_interval': len_interval,
+        'clearance': clearance,
+        'len_compartments': len_compartments,
+        'compartments': compartments,
+        'vis': vis
+>>>>>>> Updated the main script, added dosing script
         }
 
 def param_to_file():

@@ -1,8 +1,13 @@
 import numpy as np
 from scipy.integrate import solve_ivp
+<<<<<<< HEAD
 from definitions import Compartment, form_rhs_ib, form_rhs_sc
 from definitions import write_solution_file
 
+=======
+from definitions import Compartment, form_rhs_ib, form_rhs_sc, write_solution_file
+import json
+>>>>>>> Updated the main script, added dosing script
 
 # Options - to be replaced with file read-in from json.
 
@@ -100,14 +105,19 @@ def get_solution(model, subcmpt, maincmpt,
 
     return soln
 
+<<<<<<< HEAD
 
 def build_and_solve_model(pdict):
+=======
+def build_and_solve_model(filename):
+>>>>>>> Updated the main script, added dosing script
     """Write this docstring.
     """
+    pdict = json.loads(filename)
     times = generate_times(pdict['len_assay'], pdict['len_interval'])
     main, periph, sub = generate_compartments(pdict['compartments'])
     soln = get_solution(pdict['model'], sub, main, periph,
                         pdict['dose'], pdict['clearance'], times)
-    solutionmat = write_solution_file(soln, pdict['model'], pdict['nowstr'])
+    solutionfile = write_solution_file(soln, pdict['model'], pdict['nowstr'])
 
-    return solutionmat
+    return solutionfile
