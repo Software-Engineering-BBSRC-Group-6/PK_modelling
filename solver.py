@@ -4,7 +4,12 @@ from definitions import Compartment, form_rhs_ib, form_rhs_sc
 
 # Options
 refcmpts = [[1, 1, 'Peripheral'], [1, 0.5, 'Main'], [1, 0.2, 'Sub']]
-dose = lambda x: 1 / (1 + x ** 2)
+
+
+def calc_dose(x):
+    return 1 / (1 + x ** 2)
+
+
 model = 'ib'
 clearance = 0.1
 tmin = 0
@@ -37,7 +42,8 @@ if __name__ == '__main__':
 
     if model == 'sc':
         # Form the SC RHS and solve the ODE.
-        dqdt = form_rhs_sc(subcmpt, maincmpt, peripherals, dose, clearance)
+        dqdt = form_rhs_sc(subcmpt, maincmpt, peripherals, 
+                           calc_dose, clearance)
         soln = solve_ivp(dqdt, [tmin, tmax], np.zeros(len(peripherals)+2),
                          t_eval=times)
 
@@ -52,7 +58,7 @@ if __name__ == '__main__':
 
     if model == 'ib':
         # Form the IB RHS and solve the ODE.
-        dqdt = form_rhs_ib(maincmpt, peripherals, dose, clearance)
+        dqdt = form_rhs_ib(maincmpt, peripherals, calc_dose, clearance)
         soln = solve_ivp(dqdt, [tmin, tmax], np.zeros(len(peripherals)+1),
                          t_eval=times)
 
