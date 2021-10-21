@@ -12,7 +12,7 @@ Cameron Anderson - cameron.anderson@dtc.ox.ac.uk \
 Dan Hudson - alexander.hudson@dtc.ox.ac.uk \
 Ishaan Kapoor - ishaan.kapoor@dtc.ox.ac.uk \
 Joseph Pollacco - joseph.pollacco@dtc.ox.ac.uk \
-Sameul Johnson - samuel.johnson@dtc.ox.ac.uk
+Samuel Johnson - samuel.johnson@dtc.ox.ac.uk
 
 # Background
 Ref: https://sabs-r3.github.io/software-engineering-projects/01-introduction/index.html.
@@ -42,7 +42,7 @@ This repository includes the following files/folders:
 - definitions.py: Key helper functions for solver.py
 - requirements.txt: Dependencies required for proper package functioning
 - solver.py: Solver model for PK modelling
-- ux.py: User interfac executable
+- ux.py: User interface executable
 
 
 
