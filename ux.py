@@ -1,7 +1,7 @@
 # USER INTERFACE SCRIPT
 # 
 # This script runs the user through a series of questions
-# and then returns a dictionary with the answers to be solved
+# and then returns a json with the answers to be solved
 import json
 import time
 
@@ -74,6 +74,8 @@ def user_input():
 
     vis = input("Would you like to generate a graph? (Y/N)")
 
+    curr_datetime = time.time()
+    curr_datetime = str(curr_datetime)
 
 
     print("Thank you! Building model, please wait...")
@@ -87,22 +89,22 @@ def user_input():
         'len_interval':len_interval, 
         'clearance':clearance, 
         'compartments':compartments, 
-        'vis':vis
+        'vis':vis,
+        'curr_datetime':curr_datetime
         }
 
 def param_to_file():
     """
     Writes dictionary generated from user_input() and generates .json file
     """
-    curr_datetime = time.time()
-    curr_datetime = str(curr_datetime)
-    f = open(curr_datetime+".json", "w")
-    json.dump(user_input(), f)
+    data = user_input()
+    fname = data.get('curr_datetime')
+    f = open(fname+".json", "w")
+    json.dump(data, f)
     f.close()
+    filename = fname+".json"
 
-def unix_time():
-    curr_datetime = time()
-    curr_datetime = str(curr_datetime)
+    return filename
 
 
 def num_models():
