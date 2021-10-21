@@ -3,6 +3,8 @@
 # This script runs the user through a series of questions
 # and then returns a dictionary with the answers to be solved
 import json
+import time
+
 
 def user_input():
     """
@@ -15,7 +17,6 @@ def user_input():
     len_assay: Length of time should the simulation be computed across in hours
     len_interval: Granularity of time series in hours
     clearance: Time for drug to clear the system in hours
-    len_compartments: Specifies number of compartments in the model
     compartments: A list of lists containing the desired compartments
     vis: Specifies if the user wants a graph generated or just a table output
 
@@ -73,6 +74,8 @@ def user_input():
 
     vis = input("Would you like to generate a graph? (Y/N)")
 
+
+
     print("Thank you! Building model, please wait...")
 
 
@@ -91,10 +94,27 @@ def param_to_file():
     """
     Writes dictionary generated from user_input() and generates .json file
     """
-    f = open("param.json", "w")
+    curr_datetime = time.time()
+    curr_datetime = str(curr_datetime)
+    f = open(curr_datetime+".json", "w")
     json.dump(user_input(), f)
     f.close()
 
-if __name__ == "__main__":
-    param_to_file()
+def unix_time():
+    curr_datetime = time()
+    curr_datetime = str(curr_datetime)
 
+
+def num_models():
+    """
+    Defines how many modeles will be tested 
+    """
+    N = input("How many models would you like to test?")
+    N = int(N)
+    return N
+
+
+if __name__ == "__main__":
+    N = num_models()
+    for i in range(N):
+        param_to_file()
