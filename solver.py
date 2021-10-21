@@ -1,10 +1,10 @@
 import numpy as np
 from scipy.integrate import solve_ivp
-from definitions import Compartment, form_rhs_ib, form_rhs_sc
-from definitions import write_solution_file
-
+from definitions import Compartment, form_rhs_ib, form_rhs_sc, write_solution_file
+import json
 
 # Options - to be replaced with file read-in from json.
+
 
 def calc_dose(x):
     return 1 / (1 + x ** 2)
@@ -37,6 +37,12 @@ def generate_times(tmax, check_interval):
     data points are wanted from the solver.
     :type times: numpy array
     """
+    if check_interval == 0:
+        raise ValueError('Cannot divide by zero.')
+    elif tmax == 0:
+        raise ValueError('Assay cannot last zero time.')
+    elif not (tmax / check_interval).is_integer():
+        raise ValueError('Must be able to output an integer number of times.')
     npoints = int(tmax / check_interval) + 1
     times = np.linspace(tmax, num=npoints)
     return times
@@ -101,13 +107,18 @@ def get_solution(model, subcmpt, maincmpt,
     return soln
 
 
-def build_and_solve_model(pdict):
+def build_and_solve_model(filename, dosing_function):
     """Write this docstring.
     """
+    jsonfile = open(filename,)
+    pdict = json.load(jsonfile)
+    jsonfile.close()
+
     times = generate_times(pdict['len_assay'], pdict['len_interval'])
     main, periph, sub = generate_compartments(pdict['compartments'])
     soln = get_solution(pdict['model'], sub, main, periph,
-                        pdict['dose'], pdict['clearance'], times)
-    solutionmat = write_solution_file(soln, pdict['model'], pdict['nowstr'])
+                        dosing_function, pdict['clearance'], times)
 
-    return solutionmat
+    write_solution_file(soln, pdict['model'], pdict['curr_datetime'])
+
+    return './data/{0}-{1}.csv'.format(pdict['model'], pdict['curr_datetime'])

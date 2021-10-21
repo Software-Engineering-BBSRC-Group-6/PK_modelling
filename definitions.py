@@ -2,7 +2,7 @@ import numpy as np
 
 
 class Compartment():
-    """ Compartment describes an individual compartment in either model type.
+    """Compartment describes an individual compartment in either model type.
 
     :param volume: Volume of compartment
     :type volume: float
@@ -131,4 +131,4 @@ def write_solution_file(solution, model, timestamp):
     np.savetxt('./data/{0}-{1}.csv'.format(model, timestamp), solutionmat,
                delimiter=',')
 
-    return solutionmat
+    return './data/{0}-{1}.csv'.format(model, timestamp)

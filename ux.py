@@ -1,5 +1,5 @@
 # USER INTERFACE SCRIPT
-# 
+#
 # This script runs the user through a series of questions
 # and then returns a json with the answers to be solved
 import json
@@ -114,7 +114,7 @@ def user_input():
     
     #compartments
     compartments = []
-    
+
     if model_type == "ib":
         while True:
             try:
@@ -127,6 +127,7 @@ def user_input():
 
         main_compart_split.append(str("Main"))
         compartments.append(main_compart_split)
+
 
         while True:
             try:
@@ -152,6 +153,7 @@ def user_input():
 
                 compart_list.append(str(input("Please enter the name of the compartment (please ensure correct spelling): ")))
                 compartments.append(compart_list)
+
                 compart_list = None
     
     elif model_type == "sc":
@@ -221,17 +223,17 @@ def user_input():
 
 
     return {
-        'model_type': model_type, 
-        'compound': compound, 
+        'model_type': model_type,
+        'compound': compound,
         'dose_type': dose_type,
         'dose':dose,
         'dose_mass': dose_mass,
         'time_dose': time_dose,
         'num_dose': num_dose,
-        'len_assay':len_assay, 
-        'len_interval':len_interval, 
-        'clearance':clearance, 
-        'compartments':compartments, 
+        'len_assay':len_assay,
+        'len_interval':len_interval,
+        'clearance':clearance,
+        'compartments':compartments,
         'vis':vis,
         'curr_datetime':curr_datetime
         }
@@ -252,7 +254,7 @@ def param_to_file():
 
 def num_models():
     """
-    Defines how many modeles will be tested 
+    Defines how many modeles will be tested
     """
     N = input("How many models would you like to test?")
     N = int(N)
