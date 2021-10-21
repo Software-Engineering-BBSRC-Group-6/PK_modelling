@@ -1,7 +1,6 @@
 [![Python application](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/run-unittests.yml/badge.svg)](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/run-unittests.yml)
 [![Check systems capacity](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/check-systems-compat.yml/badge.svg)](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/check-systems-compat.yml)
 [![codecov](https://codecov.io/gh/Software-Engineering-BBSRC-Group-6/PK_modelling/branch/main/graph/badge.svg?token=gdzMuuonBd)](https://codecov.io/gh/Software-Engineering-BBSRC-Group-6/PK_modelling)
-[![Documentation Status](https://readthedocs.org/projects/pk-proj/badge/?version=latest)](https://pk-proj.readthedocs.io/en/latest/?badge=latest)
 
 # Pharmacokinetic Modelling Group Project
 
