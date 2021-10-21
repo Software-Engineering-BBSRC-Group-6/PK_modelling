@@ -5,6 +5,7 @@ import json
 
 # Options - to be replaced with file read-in from json.
 
+
 def calc_dose(x):
     return 1 / (1 + x ** 2)
 
@@ -99,19 +100,15 @@ def get_solution(model, subcmpt, maincmpt,
 
     return soln
 
-<<<<<<< HEAD
 
-def build_and_solve_model(pdict):
-=======
 def build_and_solve_model(filename):
->>>>>>> Updated the main script, added dosing script
-    """Write this docstring.
+"""Write this docstring.
     """
-    pdict = json.loads(filename)
-    times = generate_times(pdict['len_assay'], pdict['len_interval'])
-    main, periph, sub = generate_compartments(pdict['compartments'])
-    soln = get_solution(pdict['model'], sub, main, periph,
-                        pdict['dose'], pdict['clearance'], times)
-    solutionfile = write_solution_file(soln, pdict['model'], pdict['nowstr'])
+pdict = json.loads(filename)
+times = generate_times(pdict['len_assay'], pdict['len_interval'])
+main, periph, sub = generate_compartments(pdict['compartments'])
+soln = get_solution(pdict['model'], sub, main, periph,
+                    pdict['dose'], pdict['clearance'], times)
+solutionfile = write_solution_file(soln, pdict['model'], pdict['nowstr'])
 
-    return solutionfile
+return solutionfile
