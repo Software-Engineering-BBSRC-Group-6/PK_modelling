@@ -77,7 +77,7 @@ def user_input():
     #clearance
     while True:
         try:
-            clearance = float(input("What is the clearance rate? (units in volume per hour)"))
+            clearance = float(input("What is the clearance rate? (units in ng/hour)"))
             break
         except:
             print(num_invalid)
@@ -87,59 +87,101 @@ def user_input():
     compartments = []
     
     if model_type == "ib":
-
-        main_compart = input("Enter volume (L), transition rate () for the main compartment (all seperated by spaces - eg: 5 25 )")
-        main_compart_split = main_compart.split()
-        is_int = all(isinstance(n, int) for n in main_compart_split)
-        while is_int == False:
-            print(str_invalid)
-            main_compart = None
-            main_compart_split = None
-            main_compart = input("Enter volume (L), transition rate () for the main compartment (all seperated by spaces - eg: 5 25 )")
-            main_compart_split = main_compart.split()
-            is_int = all(isinstance(n, int) for n in main_compart_split)
-
-
-
+        while True:
+            try:
+                main_compart = input("Enter volume (L), transition rate (ng/hour) for the main compartment (all seperated by spaces - eg: 5 25 )")
+                main_compart_split = main_compart.split()
+                main_compart_split = [float(i) for i in main_compart_split]
+                break
+            except:
+                print(str_invalid)
 
         main_compart_split.append(str("Main"))
         compartments.append(main_compart_split)
 
-        num_peripherals = input("How many peripheral compartments do you want to test?")
+        while True:
+            try:
+                num_peripherals = float(input("How many peripheral compartments do you want to test?"))
+                break
+            except:
+	            print(num_invalid)
+
+        num_peripherals = int(num_peripherals)
+
+        if num_peripherals > 0:
+            
+            for i in range(num_peripherals):
+                while True:
+                    try:
+                        compart = input("Enter volume (L), transition rate (ng/hour) of the compartment (all seperated by spaces - eg: 5 25)")
+                        compart_list = compart.split()
+                        compart_list = [float(i) for i in compart_list]
+                        break
+                    
+                    except:
+                        print(str_invalid)
+
+                compart_list.append(str(input("Please enter the name of the compartment: ")))
+                compartments.append(compart_list)
+                compart_list = None
+    
+    elif model_type == "sc":
+        while True:
+            try:
+                sub_compart = input("Enter volume (L), transition rate (ng/hour) for the sub compartment (all seperated by spaces - eg: 5 25 )")
+                sub_compart_split = sub_compart.split()
+                sub_compart_split = [float(i) for i in sub_compart_split]
+                break
+            except:
+                print(str_invalid)
+
+        sub_compart_split.append(str("Sub"))
+        compartments.append(sub_compart_split)
+
+        while True:
+            try:
+                main_compart = input("Enter volume (L), transition rate (ng/hour) for the main compartment (all seperated by spaces - eg: 5 25 )")
+                main_compart_split = main_compart.split()
+                main_compart_split = [float(i) for i in main_compart_split]
+                break
+
+            except:
+                print(str_invalid)
+
+        main_compart_split.append(str("Main"))
+        compartments.append(main_compart_split)
+
+        while True:
+            try:
+                num_peripherals = float(input("How many peripheral compartments do you want to test?"))
+                break
+            except:
+	            print(num_invalid)
         
         num_peripherals = int(num_peripherals)
 
         if num_peripherals > 0:
-
+            
             for i in range(num_peripherals):
-                compart = input("Enter volume (L), transition rate (), name of compartment (all seperated by spaces - eg: 5 25 upper-lung)")
-                compart_list = compart.split()
+                while True:
+                    try:
+                        compart = input("Enter volume (L), transition rate (ng/hour) of the compartment (all seperated by spaces - eg: 5 25)")
+                        compart_list = compart.split()
+                        compart_list = [float(i) for i in compart_list]
+                        break
+                    
+                    except:
+                        print(str_invalid)
+
+                compart_list.append(str(input("Please enter the name of the compartment: ")))
                 compartments.append(compart_list)
-    
-    elif model_type == "sc":
-
-        sub_compart = input("Enter volume (L), transition rate () for the sub compartment (all seperated by spaces - eg: 5 25 )")
-        sub_compart_split = sub_compart.split()
-        sub_compart_split.append(str("Sub"))
-        compartments.append(sub_compart_split)
-
-        main_compart = input("Enter volume (L), transition rate () for the main compartment (all seperated by spaces - eg: 5 25 )")
-        main_compart_split = main_compart.split()
-        main_compart_split.append(str("Main"))
-        compartments.append(main_compart_split)
-
-        num_peripherals = input("How many peripheral compartments do you want to test?")
-        num_peripherals = int(num_peripherals)
-
-        if num_peripherals > 0:
-
-            for i in range(num_peripherals):
-                compart = input("Enter volume (L), transition rate (), name of compartment (all seperated by spaces - eg: 5 25 upper-lung)")
-                compart_list = compart.split()
-                compartments.append(compart_list)
+                compart_list = None
 
     #visualisation
     vis = input("Would you like to generate a graph? (Y/N)")
+    while vis not in {'Y','y','N','n'}:
+        print(str_invalid)
+        vis = input("Would you like to generate a graph? (Y/N)") 
 
     #unix timestamp
     curr_datetime = time.time()
