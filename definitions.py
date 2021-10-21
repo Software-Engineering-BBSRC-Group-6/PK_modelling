@@ -8,13 +8,13 @@ class Compartment():
     :type volume: float
     :param transrate: Transition rate out of a given compartment
     :type transrate: float
-    :param npoints: Used to define an empty array of the correct
-    size where the solution will be placed.
     """
+
     def __init__(self, volume, transrate_out):
         self.volume = volume
         self.transrate = transrate_out
-
+        if volume < 0:
+            raise ValueError("Volume must be >= 0")
 
 
 def form_rhs_ib(maincmpt, peripherals, dose, clearance):

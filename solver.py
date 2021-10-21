@@ -1,11 +1,18 @@
 import numpy as np
 from scipy.integrate import solve_ivp
-from definitions import Compartment, form_rhs_ib, form_rhs_sc, write_solution_file
+from definitions import Compartment, form_rhs_ib, form_rhs_sc
+from definitions import write_solution_file
+
 
 # Options - to be replaced with file read-in from json.
+
+def calc_dose(x):
+    return 1 / (1 + x ** 2)
+
+
 parameterdict = {
     'refcmpts': [[1, 1, 'Peripheral'], [1, 0.5, 'Main'], [1, 0.2, 'Sub']],
-    'dose': lambda x: 1 / (1 + x ** 2),
+    'dose': calc_dose,
     'model_type': 'sc',
     'clearance': 0.1,
     'len_assay': 72,
@@ -30,18 +37,20 @@ def generate_times(tmax, check_interval):
     data points are wanted from the solver.
     :type times: numpy array
     """
-    npoints = int(tmax  / check_interval) + 1
+    npoints = int(tmax / check_interval) + 1
     times = np.linspace(tmax, num=npoints)
     return times
 
 
-def generate_compartments(refcmpts):
+def generate_compartments(parameterdict):
     """Turns a list of compartment parameters into a set of compartment
     objects.
 
-    :param refcmpts: 
+    :param refcmpts:
     :type refcmpts:
     """
+
+    refcmpts, model = [parameterdict[i] for i in ['refcmpts', 'model']]
 
     peripherals = []  # List for peripheral compartments
     # Iterates through compartments. Adds peripherals to peripheral list,
@@ -62,7 +71,6 @@ def generate_compartments(refcmpts):
                 raise ValueError("Can't have two subcompartments.")
             else:
                 subcmpt = Compartment(cmpt[0], cmpt[1])
-        
         if subcmpt not in locals():
             subcmpt = None
 
@@ -75,27 +83,30 @@ def get_solution(model, subcmpt, maincmpt,
 
     if model == 'sc':
         # Form the SC RHS and solve the ODE.
+
         dqdt = form_rhs_sc(subcmpt, maincmpt, peripherals, dose, clearance)
         soln = solve_ivp(dqdt, [0, times[-1:]], np.zeros(len(peripherals)+2),
                          t_eval=times)
 
     elif model == 'ib':
         # Form the IB RHS and solve the ODE.
-        dqdt = form_rhs_ib(maincmpt, peripherals, dose, clearance)
-        soln = solve_ivp(dqdt, [0, times[-1:]], np.zeros(len(peripherals)+1),
-                         t_eval=times)
+
+        dqdt = form_rhs_ib(maincmpt, peripherals, calc_dose, clearance)
+        soln = solve_ivp(dqdt, [0, times[-1:]],
+                         np.zeros(len(peripherals)+1), t_eval=times)
 
     else:
         raise AssertionError("Model not recognised.")
 
     return soln
 
+
 def build_and_solve_model(pdict):
     """Write this docstring.
     """
     times = generate_times(pdict['len_assay'], pdict['len_interval'])
-    maincmpt, peripherals, subcmpt = generate_compartments(pdict['compartments'])
-    soln = get_solution(pdict['model'], subcmpt, maincmpt, peripherals,
+    main, periph, sub = generate_compartments(pdict['compartments'])
+    soln = get_solution(pdict['model'], sub, main, periph,
                         pdict['dose'], pdict['clearance'], times)
     solutionmat = write_solution_file(soln, pdict['model'], pdict['nowstr'])
 
