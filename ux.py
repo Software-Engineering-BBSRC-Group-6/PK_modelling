@@ -8,11 +8,14 @@ import time
 
 def user_input():
     """
-    This requests user input via the command line, and then returns the requrested arguments in a dictionary
+    This requests user input via the command line, and then returns
+    the requested arguments in a dictionary
 
     Variables:
-    model_type: Decides which model is build. This should return either intravenous bolous, subcutaenous or both
-    compound: Allows the user to specify what the compound is. Useful for reporting back and for ease of understanding
+    model_type: Decides which model is build. This should return either
+    intravenous bolous, subcutaenous or both
+    compound: Allows the user to specify what the compound is. Useful for
+    reporting back and for ease of understanding
     dose: Dose of compound used in ng per hour
     len_assay: Length of time should the simulation be computed across in hours
     len_interval: Granularity of time series in hours
