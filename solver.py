@@ -101,14 +101,14 @@ def get_solution(model, subcmpt, maincmpt,
     return soln
 
 
-def build_and_solve_model(filename):
-"""Write this docstring.
+def build_and_solve_model(filename, dosing_function):
+    """Write this docstring.
     """
-pdict = json.loads(filename)
-times = generate_times(pdict['len_assay'], pdict['len_interval'])
-main, periph, sub = generate_compartments(pdict['compartments'])
-soln = get_solution(pdict['model'], sub, main, periph,
-                    pdict['dose'], pdict['clearance'], times)
-solutionfile = write_solution_file(soln, pdict['model'], pdict['nowstr'])
+    pdict = json.loads(filename)
+    times = generate_times(pdict['len_assay'], pdict['len_interval'])
+    main, periph, sub = generate_compartments(pdict['compartments'])
+    soln = get_solution(pdict['model'], sub, main, periph,
+                        dosing_function, pdict['clearance'], times)
+    solutionfile = write_solution_file(soln, pdict['model'], pdict['nowstr'])
 
-return solutionfile
+    return solutionfile

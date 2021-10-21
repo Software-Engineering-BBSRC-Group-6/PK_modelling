@@ -131,4 +131,4 @@ def write_solution_file(solution, model, timestamp):
     np.savetxt('./data/{0}-{1}.csv'.format(model, timestamp), solutionmat,
                delimiter=',')
 
-    return solutionmat
+    return './data/{0}-{1}.csv'.format(model, timestamp)
