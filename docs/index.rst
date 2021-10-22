@@ -1,5 +1,15 @@
 Welcome to pk project's documentation!
 ======================================
+
+Hello World!
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
 .. automodule:: pkmodel.definitions
     :members:
 
@@ -17,11 +27,4 @@ Welcome to pk project's documentation!
    :caption: Contents:
 
 
-Hello World!
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
