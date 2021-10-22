@@ -1,6 +1,7 @@
 from definitions import Compartment, form_rhs_ib
 from solver import calc_dose, generate_times
 import numpy as np
+import pytest
 
 print("Running some unit tests")
 
@@ -13,7 +14,7 @@ def test_class():
 
 
 @pytest.mark.parametrize('test_input, expected, raises',
-    [([5, 0.5], np.linspace(5, num=int(5/0.5 + 1)), None),
+    [([5, 0.5], np.linspace(0, 5, num=int(5/0.5 + 1)), None),
      ([5, 'a string'], None, ValueError),
      (['a string', 0.5], None, ValueError),
      ([5, 0], None, ValueError),
@@ -25,7 +26,7 @@ def test_generate_times(tmax, check_interval):
 
 
 @pytest.mark.parametrize('test_input, expected, raises',
-    [([[1, 0.5, 'Main'], [[1, 1, 'Peripheral'], [0.5, 0.5, 'Peripheral']], None , None),
+    [([1, 0.5, 'Main'], [[1, 1, 'Peripheral'], [0.5, 0.5, 'Peripheral']], None , None),
     ]
 )
 def test_form_rhs_ib(maincmpt, periph):
