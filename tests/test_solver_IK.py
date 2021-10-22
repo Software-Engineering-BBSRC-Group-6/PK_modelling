@@ -1,7 +1,7 @@
-from pk_model.definitions import Compartment, form_rhs_ib
-from pk_model.solver import calc_dose, generate_times, generate_compartments, get_solution
-import numpy as np
-import pytest
+# from pk_model.definitions import Compartment, form_rhs_ib
+# from pk_model.solver import calc_dose, generate_times, generate_compartments, get_solution
+# import numpy as np
+# import pytest
 
 print("Running some unit tests")
 
@@ -59,13 +59,13 @@ print("Running some unit tests")
 #         with pytest.raises(raises):
 #             assert get_solution(test_input) == expected
 
-'''
-@pytest.mark.parametrize('test_input, expected, raises',
-    [([[1, 0.5, 'Main'], [[1, 1, 'Peripheral'], [0.5, 0.5, 'Peripheral']], None , None)
-    ]
-)
-def test_form_rhs_ib(maincmpt, periph):
+# '''
+# @pytest.mark.parametrize('test_input, expected, raises',
+#     [([[1, 0.5, 'Main'], [[1, 1, 'Peripheral'], [0.5, 0.5, 'Peripheral']], None , None)
+#     ]
+# )
+# def test_form_rhs_ib(maincmpt, periph):
 
-    form_rhs_ib(maincmpt, periph, calc_dose(2), 0.1)
-    assert callable(form_rhs_ib)
-'''
+#     form_rhs_ib(maincmpt, periph, calc_dose(2), 0.1)
+#     assert callable(form_rhs_ib)
+# '''
