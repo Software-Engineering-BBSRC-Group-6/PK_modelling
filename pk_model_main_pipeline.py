@@ -12,8 +12,12 @@ filenames = []
 
 for i in range(N):
     # Get user input to build a model.
+<<<<<<< HEAD
     #current_json = param_to_file()
     current_json = 'test_1.json'
+=======
+    current_json = param_to_file()
+>>>>>>> ac1fd8809ce05ee027016df9f3aa285975c829b9
 
     # Transform that user input into a dosing protocol function.
     dosing_function = build_dose(current_json)
