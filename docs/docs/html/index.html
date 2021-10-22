@@ -237,6 +237,54 @@ in a run
 </dl>
 </dd></dl>
 
+<span class="target" id="module-dosing"></span><dl class="py class">
+<dt class="sig sig-object py" id="dosing.ConstantDose">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dosing.</span></span><span class="sig-name descname"><span class="pre">ConstantDose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_applications</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dosing.ConstantDose" title="Permalink to this definition">¶</a></dt>
+<dd><p>ConstantDose describes a dose with constant application rate.</p>
+<p>Inherits from Dose.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_applications</strong> (<em>int</em>) – Number of applications of the drug</p></li>
+<li><p><strong>interval</strong> (<em>float</em>) – Time applications given over.</p></li>
+<li><p><strong>rate</strong> (<em>float</em>) – Rate of drug application (ng/hr)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dosing.Dose">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dosing.</span></span><span class="sig-name descname"><span class="pre">Dose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_applications</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dosing.Dose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dose describes a generic dosing protocol.</p>
+<p>Protocol has a number of applications (one unless repeated dosage),
+and a time between applications.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_applications</strong> (<em>int</em>) – Number of applications of the drug</p></li>
+<li><p><strong>interval</strong> (<em>float</em>) – Time applications given over.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dosing.InstantDose">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dosing.</span></span><span class="sig-name descname"><span class="pre">InstantDose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_applications</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dosing.InstantDose" title="Permalink to this definition">¶</a></dt>
+<dd><p>InstantDose describes a single instant dose.</p>
+<p>Inherits from Dose.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_applications</strong> (<em>int</em>) – Number of applications of the drug</p></li>
+<li><p><strong>interval</strong> (<em>float</em>) – Time applications given over.</p></li>
+<li><p><strong>mass</strong> (<em>float</em>) – Mass of the drug to apply (ng)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <div class="toctree-wrapper compound">
 </div>
 </section>
