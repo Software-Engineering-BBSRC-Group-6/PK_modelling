@@ -13,8 +13,8 @@ def test_single_plot_data():
     '''
 
 
-#     json_file = './test_json_ib.json'
-#     csv_file = './test_csv.csv'
+     json_file = './test_json_ib.json'
+     csv_file = './test_csv.csv'
 
 
     assert len(single_plot_data(json_file, csv_file)) == 4
