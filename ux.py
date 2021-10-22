@@ -10,7 +10,7 @@ def user_input():
     """
     This requests user input via the command line, and then returns the requested arguments in a dictionary
 
-    :paraam model_type: Decides which model is build. This should return either intravenous bolous, subcutaenous or both
+    :param model_type: Decides which model is build. This should return either intravenous bolous, subcutaenous or both
     :type model_type: string
     :param compound: Allows the user to specify what the compound is. Useful for reporting back and for ease of understandingx
     :param dose: Dose of compound used in ng per hour

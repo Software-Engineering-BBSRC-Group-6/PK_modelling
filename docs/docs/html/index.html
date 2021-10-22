@@ -128,11 +128,9 @@ Repository: <a class="reference external" href="https://github.com/Software-Engi
 <span class="sig-prename descclassname"><span class="pre">pkmodel.ux.</span></span><span class="sig-name descname"><span class="pre">user_input</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pkmodel.ux.user_input" title="Permalink to this definition">¶</a></dt>
 <dd><p>This requests user input via the command line, and then returns the requested arguments in a dictionary</p>
 <dl class="field-list simple">
-<dt class="field-odd">Paraam model_type</dt>
-<dd class="field-odd"><p>Decides which model is build. This should return either intravenous bolous, subcutaenous or both</p>
-</dd>
-<dt class="field-even">Parameters</dt>
-<dd class="field-even"><ul class="simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_type</strong> (<em>string</em>) – Decides which model is build. This should return either intravenous bolous, subcutaenous or both</p></li>
 <li><p><strong>compound</strong> – Allows the user to specify what the compound is. Useful for reporting back and for ease of understandingx</p></li>
 <li><p><strong>dose</strong> – Dose of compound used in ng per hour</p></li>
 <li><p><strong>len_assay</strong> – Length of time should the simulation be computed across in hours</p></li>
