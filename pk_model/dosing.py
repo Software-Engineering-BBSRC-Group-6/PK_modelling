@@ -86,7 +86,7 @@ def build_dose(filename):
         doseprotocol = InstantDose(1, 0, pdict['dose_mass'])
 
     elif pdict['dose_type'] == 'r':
-        doseprotocol = InstantDose(pdict['time_dose'], pdict['len_interval'],
-                                   pdict['dose'])
+        doseprotocol = InstantDose(pdict['num_dose'], pdict['time_dose'],
+                                   pdict['dose_mass'])
 
     return doseprotocol.construct()
