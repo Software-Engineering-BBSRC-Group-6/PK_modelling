@@ -16,8 +16,10 @@ def test_calc_dose(test_input, expected, expected_error):
     if raises:
         with pytest.raises(raises):
             assert calc_dose(test_input) == expected
-    assert calc_dose(test_input) == expected
+    else:
+        assert calc_dose(test_input) == expected
 
+#unit test for generate_time
 @pytest.mark.parametrize('test_input, expected, raises',
     [([5, 0.5], np.linspace(5, num=int(5/0.5 + 1)), None),
      ([5, 'a string'], None, ValueError),
@@ -26,8 +28,12 @@ def test_calc_dose(test_input, expected, expected_error):
      ([0, 5], None, ValueError),
     ]
 )
-def test_generate_times(tmax, check_interval):
-    generate_times(tmax, check_interval)
+def test_generate_times(test_input, expected, raises):
+    if raises:
+        with pytest.raises(raises):
+            assert generate_times(test_input) == expected
+    else:
+        assert generate_times(test_input) == expected
 
 # Unit test for generate_compartments
 @pytest.mark.parametrize('test_input, expected, raises',
@@ -40,7 +46,8 @@ def test_generate_compartments(test_input, expected, raises):
     if raises:
         with pytest.raises(raises):
             assert generate_compartments(test_input) == expected
-    assert generate_compartments(test_input) == expected
+    else:
+        assert generate_compartments(test_input) == expected
 
 # Unit test for get_solution function
 @pytest.mark.parametrize('model, subcmpt, maincmpt, peripherals, dose, clearance, time, expected, raises',

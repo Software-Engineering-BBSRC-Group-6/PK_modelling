@@ -26,7 +26,7 @@ def test_rhs_ib(test_input, expected, raises):
 
 # unit tests for form_rhs_ib
 @pytest.mark.parametrize('test_input, expected, raises',
-    [([1, 0.5, 'Main'], [[1, 1, 'Peripheral'], [0.5, 0.5, 'Peripheral']], None , None),
+    [([1, 0.5, 'Main'], [[1, 1, 'Peripheral'], [0.5, 0.5, 'Peripheral']], None, None)
     ]
 )
 def test_form_rhs_ib(maincmpt, periph):
@@ -49,7 +49,7 @@ def test_rhs_sc(test_input, expected, raises):
 
 # unit test for form_rhs_ib
 @pytest.mark.parametrize('test_input, expected, raises',
-    [([0.5, 0.2, 'Sub'], [1, 0.5, 'Main'], [[1, 1, 'Peripheral'], [0.5, 0.5, 'Peripheral']], None , None),
+    [([0.5, 0.2, 'Sub'], [1, 0.5, 'Main'], [[1, 1, 'Peripheral'], [0.5, 0.5, 'Peripheral']], None , None)
     ]
 )
 def test_form_rhs_ib(subcmpt, maincmpt, periph):
