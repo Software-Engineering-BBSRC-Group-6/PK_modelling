@@ -5,6 +5,8 @@ jsons/*.json
 .eggs/**
 build/**
 venv2/**
+venv/**
 PK_modelling.egg-info/**
 *.pyc
 .DS_Store
+oxbiodtp_7_PK_modelling.egg-info/*
