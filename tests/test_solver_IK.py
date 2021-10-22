@@ -6,12 +6,12 @@ import pytest
 print("Running some unit tests")
 
 # Unit test for calc_dose
-@pytest.mark.parametrize('test_input, expected',
+@pytest.mark.parametrize('test_input, expected, raises',
     [(3, 0.1, None),
     (0.5, 0.8, None),
     ('a string', None, TypeError)]
 )
-def test_calc_dose(test_input, expected, expected_error):
+def test_calc_dose(test_input, expected, raises):
     from solver import calc_dose
     if raises:
         with pytest.raises(raises):
@@ -37,7 +37,7 @@ def test_generate_times(test_input, expected, raises):
 
 # Unit test for generate_compartments
 @pytest.mark.parametrize('test_input, expected, raises',
-    [({'refcmpts': [[1, 1, 'Peripheral'], [1, 0.5, 'Main'], [1, 0.2, 'Sub']], 'model_type': 'sc'}, [Sub, Main, Peripheral], None),
+    [ # ({'refcmpts': [[1, 1, 'Peripheral'], [1, 0.5, 'Main'], [1, 0.2, 'Sub']], 'model_type': 'sc'}, [Sub, Main, Peripheral], None),
     ({'refcmpts': [[15, 2, 'Peripheral'], [5, 1.5, 'Main'], [1, 0.2, 'Main']], 'model_type': 'ib'}, None, ValueError),
     ({'refcmpts': [[10, 10, 'Peripheral'], [1, 0.5, 'Sub'], [1, 0.2, 'Sub']], 'model_type': 'sc'}, None, ValueError)
 ])
@@ -50,14 +50,14 @@ def test_generate_compartments(test_input, expected, raises):
         assert generate_compartments(test_input) == expected
 
 # Unit test for get_solution function
-@pytest.mark.parametrize('model, subcmpt, maincmpt, peripherals, dose, clearance, time, expected, raises',
-    [(ingestion, subcmpt, maincmpt, peripherals, dose, clearance, time, None, AssertionError)
+@pytest.mark.parametrize('test_input, expected, raises',
+    [(['ingestion', 'subcmpt', 'maincmpt', 'peripherals', 2, 0.5, 12], None, AssertionError)
     ])
 def test_get_solution(test_input, expected, raises):
     from solver import get_solution
     if raises:
         with pytest.raises(raises):
-            assert get_solution(model, subcmpt, maincmpt, peripherals, dose, clearance, time) == expected
+            assert get_solution(test_input) == expected
 
 '''
 @pytest.mark.parametrize('test_input, expected, raises',

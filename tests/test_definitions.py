@@ -30,7 +30,7 @@ def test_form_rhs_ib(test_input, expected, raises):
 # unit test for form_rhs_sc
 
 @pytest.mark.parametrize('test_input, expected, raises',
-    [([[0.5, 0.2, 'Sub'], [1, 0.5, 'Main'], [[1, 1, 'Peripheral'], [0.5, 0.5, 'Peripheral']]], None, None)
+    [([[0.5, 0.2, 'Sub'], [1, 0.5, 'Main'], [[1, 1, 'Peripheral'], [0.5, 0.5, 'Peripheral']]], None, None),
     ([[1, 0.5, 'Main'], [[1, 1, 'Peripheral'], [0.5, 0.5, 'Main']]], None, AssertionError),
     ([['a string', 0.5, 'Sub'], [1, 1, 'Main']], None, TypeError),
     ([[1, 0.5, 'Sub'], [1, 'a string', 'Main']], None, TypeError)
