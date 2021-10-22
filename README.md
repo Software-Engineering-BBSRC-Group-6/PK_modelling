@@ -53,19 +53,20 @@ This repository includes the following key files/folders:
 
 # Installation
 
-Clone the git repository to your local directory: 
-'git clone https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling'
-Set the correct working directory: 
-'cd PK_modelling'
-We recommend then creating and activating a virtual environment 
-'python 3 venv venv'
-'source venv/bin/activate'
-The project dependencies can then be installed via pip
- `pip install oxbiodtp-7-PK-modelling` 
- OR
- 'pip install -r requirements.txt' (this will also install modules required for development)'
-Execute the main file to run the programme
-`python -m pk_model_main_pipeline.py`
+Clone the git repository to your local directory: \
+'git clone https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling' \
+Set the correct working directory: \
+'cd PK_modelling' \
+We recommend then creating and activating a virtual environment \
+'python 3 venv venv' \
+'source venv/bin/activate' \
+The project dependencies can then be installed via pip \
+ `pip install oxbiodtp-7-PK-modelling` \
+ OR \
+ 'pip install -r requirements.txt' (this will also install modules required for development)' \
+Execute the main file to run the programme \
+`python -m pk_model_main_pipeline.py` \
+
 # Runtime
 
 The model will then pose a series of questions, to be answered using the command line. An example runscript is provided below:
