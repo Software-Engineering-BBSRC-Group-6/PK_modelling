@@ -13,7 +13,7 @@ def test_class():
 
 # unit tests for form_rhs_ib
 @pytest.mark.parametrize('test_input, expected, raises',
-    [([[1, 0.5, 'Main'], [[1, 1, 'Peripheral'], [0.5, 0.5, 'Peripheral']]], None, None)
+    [([[1, 0.5, 'Main'], [[1, 1, 'Peripheral'], [0.5, 0.5, 'Peripheral']]], None, None),
     ([[1, 0.5, 'Main'], [[1, 1, 'Peripheral'], [0.5, 0.5, 'Main']]], None, AssertionError),
     ([['a string', 0.5, 'Main'], [1, 1, 'Peripheral']], None, TypeError),
     ([[1, 0.5, 'Main'], [1, 'a string', 'Peripheral']], None, TypeError)
