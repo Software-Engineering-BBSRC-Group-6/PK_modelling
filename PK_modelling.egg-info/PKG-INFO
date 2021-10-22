@@ -3,7 +3,7 @@ Name: PK-modelling
 Version: 0.1.3
 Summary: 'Library for producing, solving and visualising pharmacokinetic models.'
 Home-page: https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling
-Author: Joe Pollacco
+Author: 'Dan Hudson, Ishaan Kapoor, Sam Johnson, Amit Halkhoree, Cameron Anderson, Joe Pollacco'
 Author-email: joseph.pollacco@dtc.ox.ac.uk
 License: MIT
 Description: [![Python application](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/run-unittests.yml/badge.svg)](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/run-unittests.yml)
