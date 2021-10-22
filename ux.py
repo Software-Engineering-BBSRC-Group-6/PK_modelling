@@ -12,8 +12,7 @@ def user_input():
 
     :paraam model_type: Decides which model is build. This should return either intravenous bolous, subcutaenous or both
     :type model_type: string
-    :param compound: Allows the user to specify what the compound is. Useful for reporting back and for ease of understanding
-    compound: Allows the user to specify what the compound is. Useful for
+    :param compound: Allows the user to specify what the compound is. Useful for reporting back and for ease of understandingx
     :param dose: Dose of compound used in ng per hour
     :param len_assay: Length of time should the simulation be computed across in hours
     :param len_interval: Granularity of time series in hours

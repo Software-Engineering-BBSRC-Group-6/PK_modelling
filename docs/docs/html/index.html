@@ -132,16 +132,17 @@ Repository: <a class="reference external" href="https://github.com/Software-Engi
 <dd class="field-odd"><p>Decides which model is build. This should return either intravenous bolous, subcutaenous or both</p>
 </dd>
 <dt class="field-even">Parameters</dt>
-<dd class="field-even"><p><strong>compound</strong> – Allows the user to specify what the compound is. Useful for reporting back and for ease of understanding</p>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>compound</strong> – Allows the user to specify what the compound is. Useful for reporting back and for ease of understandingx</p></li>
+<li><p><strong>dose</strong> – Dose of compound used in ng per hour</p></li>
+<li><p><strong>len_assay</strong> – Length of time should the simulation be computed across in hours</p></li>
+<li><p><strong>len_interval</strong> – Granularity of time series in hours</p></li>
+<li><p><strong>clearance</strong> – Time for drug to clear the system in hours</p></li>
+<li><p><strong>compartments</strong> – A list of lists containing the desired compartments</p></li>
+<li><p><strong>vis</strong> – Specifies if the user wants a graph generated or just a table output</p></li>
+</ul>
 </dd>
 </dl>
-<p>compound: Allows the user to specify what the compound is. Useful for
-:param dose: Dose of compound used in ng per hour
-:param len_assay: Length of time should the simulation be computed across in hours
-:param len_interval: Granularity of time series in hours
-:param clearance: Time for drug to clear the system in hours
-:param compartments: A list of lists containing the desired compartments
-:param vis: Specifies if the user wants a graph generated or just a table output</p>
 </dd></dl>
 
 <span class="target" id="module-pkmodel.solver"></span><dl class="py function">
