@@ -1,5 +1,5 @@
 from pk_model.definitions import Compartment, form_rhs_ib
-from pk_model.solver import calc_dose, generate_times, generate_compartments get_solution
+from pk_model.solver import calc_dose, generate_times, generate_compartments, get_solution
 import numpy as np
 import pytest
 
