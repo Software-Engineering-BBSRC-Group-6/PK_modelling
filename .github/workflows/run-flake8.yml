@@ -5,9 +5,9 @@ name: Lint with flake8
 
 on:
   push:
-    branches: [main, 0.3.0-dh-1.0 ]
+    branches: [ 0.3.0-dh-1.0 ]
   pull_request:
-    branches: [main, 0.3.0-dh-1.0 ]
+    branches: [ 0.3.0-dh-1.0 ]
 
 jobs:
   build:
