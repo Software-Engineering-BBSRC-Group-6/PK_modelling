@@ -43,9 +43,9 @@ Repository: <a class="reference external" href="https://github.com/Software-Engi
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
-<span class="target" id="module-pkmodel.definitions"></span><dl class="py class">
-<dt class="sig sig-object py" id="pkmodel.definitions.Compartment">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pkmodel.definitions.</span></span><span class="sig-name descname"><span class="pre">Compartment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transrate_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pkmodel.definitions.Compartment" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="module-definitions"></span><dl class="py class">
+<dt class="sig sig-object py" id="definitions.Compartment">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">definitions.</span></span><span class="sig-name descname"><span class="pre">Compartment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transrate_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#definitions.Compartment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compartment describes an individual compartment in either model type.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -58,8 +58,8 @@ Repository: <a class="reference external" href="https://github.com/Software-Engi
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pkmodel.definitions.form_rhs_ib">
-<span class="sig-prename descclassname"><span class="pre">pkmodel.definitions.</span></span><span class="sig-name descname"><span class="pre">form_rhs_ib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maincmpt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peripherals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clearance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pkmodel.definitions.form_rhs_ib" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="definitions.form_rhs_ib">
+<span class="sig-prename descclassname"><span class="pre">definitions.</span></span><span class="sig-name descname"><span class="pre">form_rhs_ib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maincmpt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peripherals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clearance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#definitions.form_rhs_ib" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function factory to form the right-hand side of the PK ODE for IB model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -77,8 +77,8 @@ Repository: <a class="reference external" href="https://github.com/Software-Engi
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pkmodel.definitions.form_rhs_sc">
-<span class="sig-prename descclassname"><span class="pre">pkmodel.definitions.</span></span><span class="sig-name descname"><span class="pre">form_rhs_sc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subcmpt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maincmpt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peripherals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clearance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pkmodel.definitions.form_rhs_sc" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="definitions.form_rhs_sc">
+<span class="sig-prename descclassname"><span class="pre">definitions.</span></span><span class="sig-name descname"><span class="pre">form_rhs_sc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subcmpt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maincmpt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peripherals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clearance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#definitions.form_rhs_sc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function factory to form the right-hand side of the PK ODE for IB model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -94,8 +94,8 @@ Repository: <a class="reference external" href="https://github.com/Software-Engi
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pkmodel.definitions.write_solution_file">
-<span class="sig-prename descclassname"><span class="pre">pkmodel.definitions.</span></span><span class="sig-name descname"><span class="pre">write_solution_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pkmodel.definitions.write_solution_file" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="definitions.write_solution_file">
+<span class="sig-prename descclassname"><span class="pre">definitions.</span></span><span class="sig-name descname"><span class="pre">write_solution_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#definitions.write_solution_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Puts the scipy solution into a data file for reading by the visualiser.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -111,21 +111,21 @@ Repository: <a class="reference external" href="https://github.com/Software-Engi
 </dl>
 </dd></dl>
 
-<span class="target" id="module-pkmodel.ux"></span><dl class="py function">
-<dt class="sig sig-object py" id="pkmodel.ux.num_models">
-<span class="sig-prename descclassname"><span class="pre">pkmodel.ux.</span></span><span class="sig-name descname"><span class="pre">num_models</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pkmodel.ux.num_models" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="module-ux"></span><dl class="py function">
+<dt class="sig sig-object py" id="ux.num_models">
+<span class="sig-prename descclassname"><span class="pre">ux.</span></span><span class="sig-name descname"><span class="pre">num_models</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ux.num_models" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines how many modeles will be tested</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pkmodel.ux.param_to_file">
-<span class="sig-prename descclassname"><span class="pre">pkmodel.ux.</span></span><span class="sig-name descname"><span class="pre">param_to_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pkmodel.ux.param_to_file" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ux.param_to_file">
+<span class="sig-prename descclassname"><span class="pre">ux.</span></span><span class="sig-name descname"><span class="pre">param_to_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ux.param_to_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes dictionary generated from user_input() and generates .json file</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pkmodel.ux.user_input">
-<span class="sig-prename descclassname"><span class="pre">pkmodel.ux.</span></span><span class="sig-name descname"><span class="pre">user_input</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pkmodel.ux.user_input" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ux.user_input">
+<span class="sig-prename descclassname"><span class="pre">ux.</span></span><span class="sig-name descname"><span class="pre">user_input</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ux.user_input" title="Permalink to this definition">¶</a></dt>
 <dd><p>This requests user input via the command line, and then returns the requested arguments in a dictionary</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -143,15 +143,15 @@ Repository: <a class="reference external" href="https://github.com/Software-Engi
 </dl>
 </dd></dl>
 
-<span class="target" id="module-pkmodel.solver"></span><dl class="py function">
-<dt class="sig sig-object py" id="pkmodel.solver.build_and_solve_model">
-<span class="sig-prename descclassname"><span class="pre">pkmodel.solver.</span></span><span class="sig-name descname"><span class="pre">build_and_solve_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dosing_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pkmodel.solver.build_and_solve_model" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="module-solver"></span><dl class="py function">
+<dt class="sig sig-object py" id="solver.build_and_solve_model">
+<span class="sig-prename descclassname"><span class="pre">solver.</span></span><span class="sig-name descname"><span class="pre">build_and_solve_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dosing_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#solver.build_and_solve_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write this docstring.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pkmodel.solver.generate_compartments">
-<span class="sig-prename descclassname"><span class="pre">pkmodel.solver.</span></span><span class="sig-name descname"><span class="pre">generate_compartments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameterdict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pkmodel.solver.generate_compartments" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="solver.generate_compartments">
+<span class="sig-prename descclassname"><span class="pre">solver.</span></span><span class="sig-name descname"><span class="pre">generate_compartments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameterdict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#solver.generate_compartments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Turns a list of compartment parameters into a set of compartment objects.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -161,8 +161,8 @@ Repository: <a class="reference external" href="https://github.com/Software-Engi
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pkmodel.solver.generate_times">
-<span class="sig-prename descclassname"><span class="pre">pkmodel.solver.</span></span><span class="sig-name descname"><span class="pre">generate_times</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_interval</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pkmodel.solver.generate_times" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="solver.generate_times">
+<span class="sig-prename descclassname"><span class="pre">solver.</span></span><span class="sig-name descname"><span class="pre">generate_times</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_interval</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#solver.generate_times" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates an array of times to be checked by the solver.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -179,8 +179,8 @@ Repository: <a class="reference external" href="https://github.com/Software-Engi
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pkmodel.solver.get_solution">
-<span class="sig-prename descclassname"><span class="pre">pkmodel.solver.</span></span><span class="sig-name descname"><span class="pre">get_solution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subcmpt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maincmpt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peripherals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clearance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pkmodel.solver.get_solution" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="solver.get_solution">
+<span class="sig-prename descclassname"><span class="pre">solver.</span></span><span class="sig-name descname"><span class="pre">get_solution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subcmpt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maincmpt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peripherals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clearance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#solver.get_solution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds solution of drug dosage over time for a given set of compartments, dose and clearance rate</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -195,6 +195,39 @@ Repository: <a class="reference external" href="https://github.com/Software-Engi
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<span class="target" id="module-visualiser"></span><dl class="py function">
+<dt class="sig sig-object py" id="visualiser.collate_data">
+<span class="sig-prename descclassname"><span class="pre">visualiser.</span></span><span class="sig-name descname"><span class="pre">collate_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualiser.collate_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collate the lists returned by single_plot to return a list of lists for all simulations
+in a run
+:param run: list formatted as [[json1.json, csv1.csv], [json2.json, csv2.csv]…]
+:return collated_list: matrix containing data matrices for all simulations</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="visualiser.make_plots">
+<span class="sig-prename descclassname"><span class="pre">visualiser.</span></span><span class="sig-name descname"><span class="pre">make_plots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filenames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualiser.make_plots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill me in later.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="visualiser.multiplot">
+<span class="sig-prename descclassname"><span class="pre">visualiser.</span></span><span class="sig-name descname"><span class="pre">multiplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collated_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualiser.multiplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot overlayed simulation data from multiple runs using collated data matrix
+:param collated_list: matrix containing data matrices for all simulations
+:return: display overlayed plots for each compartment</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="visualiser.single_plot_data">
+<span class="sig-prename descclassname"><span class="pre">visualiser.</span></span><span class="sig-name descname"><span class="pre">single_plot_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">csv_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualiser.single_plot_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read parameters and data from models to generate a list of model parameters,
+data array and its dimensions
+:param json_file: Name of the json file to be opened
+:param csv_file: Name of the csv file to be opened
+:return plot_value: list containing [parameters, data_array, num_rows, num_columns]</p>
 </dd></dl>
 
 <div class="toctree-wrapper compound">
