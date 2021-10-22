@@ -35,7 +35,7 @@ Our model consists of three principal modules:
 
 This repository includes the following key files/folders:
 
-- .github/workflows: directory of github actions ensuring continuous integration (CI) of repository updates 
+- .github/workflows: directory of github actions ensuring continuous integration (CI) of repository updates
 - data: directory for saving outputs
 - docs: files required for automated document production
 - jsons: directory for saving user input and passing to the solver
@@ -86,6 +86,3 @@ Please enter the name of the compartment (please ensure correct spelling): heart
 Would you like to generate a graph? (Y/N): y
 
 This should produce a plot of the distribution of paracetamol between the main compartment and the heart, and save the resulting .csv in teh data directory.
-
-
-
