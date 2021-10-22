@@ -33,17 +33,15 @@ def form_rhs_ib(maincmpt, peripherals, dose, clearance):
     """
 
     def rhs_ib(t, q):
-        """Returns the right-hand side of the ODE for the IB model, including
-        the parameters of the various compartments.
-
+        """Returns the right-hand side of the ODE for the IB model, including the parameters of the various compartments.
+        
         :param t: time
         :type t: float
-        :param q: N-dimensional vector with q[0] as the main compartment and
-        q[1] ... q[N-1] as the peripheral compartments.
+        :param q: N-dimensional vector with q[0] as the main compartment and q[1] ... q[N-1] as the peripheral compartments.
         :type q: numpy array of floats of size (N,).
+
         :return dqdt: The value of the N-dimensional time derivative at time t.
         :type dqdt: numpy array of floats of size (N,).
-
         """
         perfluxes = [(q[0] / maincmpt.volume - q[c+1] / p.volume)
                      * p.transrate for c, p in enumerate(peripherals)]
@@ -74,14 +72,11 @@ def form_rhs_sc(subcmpt, maincmpt, peripherals, dose, clearance):
     """
 
     def rhs_sc(t, q):
-        """Returns the right-hand side of the ODE for the SC model, including
-        the parameters of the various compartments.
+        """Returns the right-hand side of the ODE for the SC model, including the parameters of the various compartments.
 
         :param t: time
         :type t: float
-        :param q: N-dimensional vector with q[0] as the sub compartment,
-        q[1] as the main compartment, and q[2] ... q[N-1] as the peripheral
-         compartments.
+        :param q: N-dimensional vector with q[0] as the sub compartment, q[1] as the main compartment, and q[2] ... q[N-1] as the peripheral compartments.
         :type q: numpy array of floats of size (N,).
 
         :return dqdt: The value of the N-dimensional time derivative at time t.
@@ -107,12 +102,12 @@ def write_solution_file(solution, model, timestamp):
 
     :param solution: solution from scipy solve_ivp().
     :type solution: bunch
-    :param model: type of model, one of 'sc' or 'ib' as defined earlier by
-    user.
+    :param model: type of model, one of 'sc' or 'ib' as defined earlier by the user.
     :type model: string
     :param timestamp: time at which the solver was run, used to identify a
     given run.
     :type timestamp: string
+    
     :return solutionmat: Contains timeseries data, and solutions for each
     compartment.
     :type solutionmat: Numpy array
