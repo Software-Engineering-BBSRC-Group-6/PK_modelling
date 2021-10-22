@@ -14,19 +14,19 @@ Indices and tables
 .. automodule:: definitions
     :members:
 
-.. automodule:: pk_model_main_pipeline
+.. automodule:: dosing
     :members:
 
-.. automodule:: ux
+.. automodule:: pk_model_main_pipeline
     :members:
 
 .. automodule:: solver
     :members:
 
-.. automodule:: visualiser
+.. automodule:: ux
     :members:
 
-.. automodule:: dosing
+.. automodule:: visualiser
     :members:
 
 .. toctree::

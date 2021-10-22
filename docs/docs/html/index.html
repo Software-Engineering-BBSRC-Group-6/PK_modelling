@@ -111,33 +111,49 @@ Repository: <a class="reference external" href="https://github.com/Software-Engi
 </dl>
 </dd></dl>
 
-<span class="target" id="module-ux"></span><dl class="py function">
-<dt class="sig sig-object py" id="ux.num_models">
-<span class="sig-prename descclassname"><span class="pre">ux.</span></span><span class="sig-name descname"><span class="pre">num_models</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ux.num_models" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines how many modeles will be tested</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ux.param_to_file">
-<span class="sig-prename descclassname"><span class="pre">ux.</span></span><span class="sig-name descname"><span class="pre">param_to_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ux.param_to_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Writes dictionary generated from user_input() and generates .json file</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ux.user_input">
-<span class="sig-prename descclassname"><span class="pre">ux.</span></span><span class="sig-name descname"><span class="pre">user_input</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ux.user_input" title="Permalink to this definition">¶</a></dt>
-<dd><p>This requests user input via the command line, and then returns the requested arguments in a dictionary</p>
+<span class="target" id="module-dosing"></span><dl class="py class">
+<dt class="sig sig-object py" id="dosing.ConstantDose">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dosing.</span></span><span class="sig-name descname"><span class="pre">ConstantDose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_applications</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dosing.ConstantDose" title="Permalink to this definition">¶</a></dt>
+<dd><p>ConstantDose describes a dose with constant application rate.</p>
+<p>Inherits from Dose.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model_type</strong> (<em>string</em>) – Decides which model is build. This should return either intravenous bolous, subcutaenous or both</p></li>
-<li><p><strong>compound</strong> – Allows the user to specify what the compound is. Useful for reporting back and for ease of understandingx</p></li>
-<li><p><strong>dose</strong> – Dose of compound used in ng per hour</p></li>
-<li><p><strong>len_assay</strong> – Length of time should the simulation be computed across in hours</p></li>
-<li><p><strong>len_interval</strong> – Granularity of time series in hours</p></li>
-<li><p><strong>clearance</strong> – Time for drug to clear the system in hours</p></li>
-<li><p><strong>compartments</strong> – A list of lists containing the desired compartments</p></li>
-<li><p><strong>vis</strong> – Specifies if the user wants a graph generated or just a table output</p></li>
+<li><p><strong>num_applications</strong> (<em>int</em>) – Number of applications of the drug</p></li>
+<li><p><strong>interval</strong> (<em>float</em>) – Time applications given over.</p></li>
+<li><p><strong>rate</strong> (<em>float</em>) – Rate of drug application (ng/hr)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dosing.Dose">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dosing.</span></span><span class="sig-name descname"><span class="pre">Dose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_applications</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dosing.Dose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dose describes a generic dosing protocol.</p>
+<p>Protocol has a number of applications (one unless repeated dosage),
+and a time between applications.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_applications</strong> (<em>int</em>) – Number of applications of the drug</p></li>
+<li><p><strong>interval</strong> (<em>float</em>) – Time applications given over.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dosing.InstantDose">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dosing.</span></span><span class="sig-name descname"><span class="pre">InstantDose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_applications</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dosing.InstantDose" title="Permalink to this definition">¶</a></dt>
+<dd><p>InstantDose describes a single instant dose.</p>
+<p>Inherits from Dose.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_applications</strong> (<em>int</em>) – Number of applications of the drug</p></li>
+<li><p><strong>interval</strong> (<em>float</em>) – Time applications given over.</p></li>
+<li><p><strong>mass</strong> (<em>float</em>) – Mass of the drug to apply (ng)</p></li>
 </ul>
 </dd>
 </dl>
@@ -197,37 +213,85 @@ Repository: <a class="reference external" href="https://github.com/Software-Engi
 </dl>
 </dd></dl>
 
+<span class="target" id="module-ux"></span><dl class="py function">
+<dt class="sig sig-object py" id="ux.num_models">
+<span class="sig-prename descclassname"><span class="pre">ux.</span></span><span class="sig-name descname"><span class="pre">num_models</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ux.num_models" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines how many modeles will be tested</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ux.param_to_file">
+<span class="sig-prename descclassname"><span class="pre">ux.</span></span><span class="sig-name descname"><span class="pre">param_to_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ux.param_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes dictionary generated from user_input() and generates .json file</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ux.user_input">
+<span class="sig-prename descclassname"><span class="pre">ux.</span></span><span class="sig-name descname"><span class="pre">user_input</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ux.user_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>This requests user input via the command line, and then returns the requested arguments in a dictionary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_type</strong> (<em>string</em>) – Decides which model is build. This should return either intravenous bolous, subcutaenous or both</p></li>
+<li><p><strong>compound</strong> – Allows the user to specify what the compound is. Useful for reporting back and for ease of understandingx</p></li>
+<li><p><strong>dose</strong> – Dose of compound used in ng per hour</p></li>
+<li><p><strong>len_assay</strong> – Length of time should the simulation be computed across in hours</p></li>
+<li><p><strong>len_interval</strong> – Granularity of time series in hours</p></li>
+<li><p><strong>clearance</strong> – Time for drug to clear the system in hours</p></li>
+<li><p><strong>compartments</strong> – A list of lists containing the desired compartments</p></li>
+<li><p><strong>vis</strong> – Specifies if the user wants a graph generated or just a table output</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <span class="target" id="module-visualiser"></span><dl class="py function">
 <dt class="sig sig-object py" id="visualiser.collate_data">
 <span class="sig-prename descclassname"><span class="pre">visualiser.</span></span><span class="sig-name descname"><span class="pre">collate_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualiser.collate_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Collate the lists returned by single_plot to return a list of lists for all simulations
-in a run
-:param run: list formatted as [[json1.json, csv1.csv], [json2.json, csv2.csv]…]
-:return collated_list: matrix containing data matrices for all simulations</p>
+<dd><p>Collate the lists returned by single_plot to return a list of lists for all simulations in a run
+:param run: list formatted as [[json1.json, csv1.csv], [json2.json, csv2.csv]…]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return collated_list</dt>
+<dd class="field-odd"><p>matrix containing data matrices for all simulations</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="visualiser.make_plots">
 <span class="sig-prename descclassname"><span class="pre">visualiser.</span></span><span class="sig-name descname"><span class="pre">make_plots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filenames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualiser.make_plots" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fill me in later.</p>
+<dd><p>Create plots for given filenames</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="visualiser.multiplot">
 <span class="sig-prename descclassname"><span class="pre">visualiser.</span></span><span class="sig-name descname"><span class="pre">multiplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collated_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualiser.multiplot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot overlayed simulation data from multiple runs using collated data matrix
-:param collated_list: matrix containing data matrices for all simulations
-:return: display overlayed plots for each compartment</p>
+<dd><p>Plot overlayed simulation data from multiple runs using collated data matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>collated_list</strong> – matrix containing data matrices for all simulations</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>display overlayed plots for each compartment</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="visualiser.single_plot_data">
 <span class="sig-prename descclassname"><span class="pre">visualiser.</span></span><span class="sig-name descname"><span class="pre">single_plot_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">csv_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualiser.single_plot_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read parameters and data from models to generate a list of model parameters,
-data array and its dimensions
-:param json_file: Name of the json file to be opened
-:param csv_file: Name of the csv file to be opened
-:return plot_value: list containing [parameters, data_array, num_rows, num_columns]</p>
+<dd><p>Read parameters and data from models to generate a list of model parameters, data array and its dimensions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>json_file</strong> (<em>string</em>) – Name of the json file to be opened</p></li>
+<li><p><strong>csv_file</strong> (<em>string</em>) – Name of the csv file to be opened</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return plot_value</dt>
+<dd class="field-even"><p>list containing [parameters, data_array, num_rows, num_columns]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <div class="toctree-wrapper compound">
