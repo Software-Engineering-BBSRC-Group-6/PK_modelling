@@ -1,5 +1,7 @@
 import pytest
 import numpy as np
+from pk_model.visualiser import single_plot_data, collate_data, multiplot
+
 
 print('Running tests on visualiser script')
 
@@ -10,8 +12,7 @@ def test_single_plot_data():
     four elements and that these elements are the following and in order:
     dictionary, numpy array, integer, integer.
     '''
-    from visualiser import single_plot_data
-
+    
     json_file = './test_json_ib.json'
     csv_file = './test_csv.csv'
 
@@ -29,7 +30,6 @@ def test_collate_data():
     file pairings which were inputted into the function. This ensures that all
     data files have been included in the collated list.
     '''
-    from visualiser import collate_data
 
     filesnames = [['./test_json_ib.json', './test_csv.csv'],
                   ['./test_json_sc.json', './test_csv.csv']]
@@ -87,11 +87,9 @@ def test_multiplot_inputs(input, error):
     inputs to the plotting function. Inputs must be dictionary, array, int, int in that
     order. This test checks that TypeErrors are thrown if these inputs are not adhered to.
     '''
-    from visualiser import multiplot, collate_data
+
     if error:
         with pytest.raises(error):
             assert multiplot(input) == error
     else:
         assert multiplot(input) == error
-
-
