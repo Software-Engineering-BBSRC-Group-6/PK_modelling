@@ -6,12 +6,7 @@ import json
 # Load single JSON file and return data for plotting
 def single_plot_data(json_file, csv_file):
     '''
-<<<<<<< HEAD
     Read parameters and data from models to generate a list of model parameters, data array and its dimensions
-=======
-    Read parameters and data from models to generate a list of model parameters,
-    data array and its dimensions
->>>>>>> 01e88ae766b0af2b2edcffa9c132a967e1d3b30d
 
     :param json_file: Name of the json file to be opened
     :type json_file: string
@@ -40,13 +35,7 @@ def single_plot_data(json_file, csv_file):
 # Run is list formatted as [[json1, csv1], [json2, csv2]...] 
 def collate_data(run):
     '''
-<<<<<<< HEAD
     Collate the lists returned by single_plot to return a list of lists for all simulations in a run
-=======
-    Collate the lists returned by single_plot to return a list of lists for all simulations
-    in a run
-
->>>>>>> 01e88ae766b0af2b2edcffa9c132a967e1d3b30d
     :param run: list formatted as [[json1.json, csv1.csv], [json2.json, csv2.csv]...]
 
     :return collated_list: matrix containing data matrices for all simulations
@@ -114,12 +103,8 @@ def multiplot(collated_list):
     # Display plot
     plt.show()
 
+
 def make_plots(filenames):
-<<<<<<< HEAD
-    """Create plots for given filenames
-    
-    """
-=======
     '''
     Combine multiplot and collate_data functions to produce overlayed plots of drug concentration against time for
     all user specified compartments.
@@ -127,6 +112,5 @@ def make_plots(filenames):
     :param filenames: Simulation filename list formatted as [[json1, csv1], [json2, csv2]...]  
     '''
 
->>>>>>> 01e88ae766b0af2b2edcffa9c132a967e1d3b30d
     multiplot(collate_data(filenames))
 
