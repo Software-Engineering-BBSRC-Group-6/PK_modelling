@@ -3,22 +3,8 @@ from scipy.integrate import solve_ivp
 from pk_model.definitions import Compartment, form_rhs_ib, form_rhs_sc, write_solution_file
 import json
 
-
-def calc_dose(x):
-    return 1 / (1 + x ** 2)
-
-
 # Some old sample options -
 # to be removed, updated and included in some kind of unit test instead.
-parameterdict = {
-    'refcmpts': [[1, 1, 'Peripheral'], [1, 0.5, 'Main'], [1, 0.2, 'Sub']],
-    'dose': calc_dose,
-    'model_type': 'sc',
-    'clearance': 0.1,
-    'len_assay': 72,
-    'len_interval': 0.25,
-    'nowstr': 'testrun',
-}
 
 
 def generate_times(tmax, check_interval):
@@ -74,8 +60,9 @@ def generate_compartments(parameterdict):
                 raise ValueError("Can't have two subcompartments.")
             else:
                 subcmpt = Compartment(cmpt[0], cmpt[1])
-        if 'subcmpt' not in locals():
-            subcmpt = None
+    
+    if 'subcmpt' not in locals():
+        subcmpt = None
 
     return maincmpt, peripherals, subcmpt
 
