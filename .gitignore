@@ -6,3 +6,4 @@ jsons/*.json
 build/*
 venv2/*
 PK_modelling.egg-info/*
+.DS_Store
