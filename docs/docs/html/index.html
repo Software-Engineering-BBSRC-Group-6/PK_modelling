@@ -152,8 +152,7 @@ Repository: <a class="reference external" href="https://github.com/Software-Engi
 <dl class="py function">
 <dt class="sig sig-object py" id="pkmodel.solver.generate_compartments">
 <span class="sig-prename descclassname"><span class="pre">pkmodel.solver.</span></span><span class="sig-name descname"><span class="pre">generate_compartments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameterdict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pkmodel.solver.generate_compartments" title="Permalink to this definition">¶</a></dt>
-<dd><p>Turns a list of compartment parameters into a set of compartment
-objects.</p>
+<dd><p>Turns a list of compartment parameters into a set of compartment objects.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>refcmpts</strong> – </p>
@@ -164,26 +163,38 @@ objects.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pkmodel.solver.generate_times">
 <span class="sig-prename descclassname"><span class="pre">pkmodel.solver.</span></span><span class="sig-name descname"><span class="pre">generate_times</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_interval</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pkmodel.solver.generate_times" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates an array of times to be checked
-by the solver.</p>
+<dd><p>Generates an array of times to be checked by the solver.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>tmin</strong> (<em>float</em>) – Time of start of assay (hours)</p></li>
 <li><p><strong>tmax</strong> (<em>float</em>) – Time of end of assay (hours)</p></li>
-<li><p><strong>check_interval</strong> – Time interval between data</p></li>
+<li><p><strong>check_interval</strong> (<em>float</em>) – Time interval between data points (hours).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return times</dt>
+<dd class="field-even"><p>Contains the times at which data points are wanted from the solver.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pkmodel.solver.get_solution">
+<span class="sig-prename descclassname"><span class="pre">pkmodel.solver.</span></span><span class="sig-name descname"><span class="pre">get_solution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subcmpt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maincmpt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peripherals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clearance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pkmodel.solver.get_solution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds solution of drug dosage over time for a given set of compartments, dose and clearance rate</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>string</em>) – the input model, subcutaneous (sc) or IV bolus (ib)</p></li>
+<li><p><strong>subcompt</strong> – subcompartment</p></li>
+<li><p><strong>maincmpt</strong> – main compartment</p></li>
+<li><p><strong>peripheral</strong> – the peripheral compartments added</p></li>
+<li><p><strong>dose</strong> – dose function</p></li>
+<li><p><strong>clearance</strong> – clearance rate</p></li>
+<li><p><strong>times</strong> – time points to solve model</p></li>
 </ul>
 </dd>
 </dl>
-<p>points (hours).
-:type check_interval: float</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return times</dt>
-<dd class="field-odd"><p>Contains the times at which</p>
-</dd>
-</dl>
-<p>data points are wanted from the solver.
-:type times: numpy array</p>
 </dd></dl>
 
 <div class="toctree-wrapper compound">

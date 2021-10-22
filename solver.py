@@ -22,19 +22,16 @@ parameterdict = {
 
 
 def generate_times(tmax, check_interval):
-    """Generates an array of times to be checked
-    by the solver.
+    """Generates an array of times to be checked by the solver.
 
     :param tmin: Time of start of assay (hours)
     :type tmin: float
     :param tmax: Time of end of assay (hours)
     :type tmax: float
-    :param check_interval: Time interval between data
-    points (hours).
+    :param check_interval: Time interval between data points (hours).
     :type check_interval: float
 
-    :return times: Contains the times at which
-    data points are wanted from the solver.
+    :return times: Contains the times at which data points are wanted from the solver.
     :type times: numpy array
     """
     if check_interval == 0:
@@ -49,8 +46,7 @@ def generate_times(tmax, check_interval):
 
 
 def generate_compartments(parameterdict):
-    """Turns a list of compartment parameters into a set of compartment
-    objects.
+    """Turns a list of compartment parameters into a set of compartment objects.
 
     :param refcmpts:
     :type refcmpts:
@@ -85,7 +81,16 @@ def generate_compartments(parameterdict):
 
 def get_solution(model, subcmpt, maincmpt,
                  peripherals, dose, clearance, times):
-    """"""
+    """Finds solution of drug dosage over time for a given set of compartments, dose and clearance rate
+    
+    :param model: the input model, subcutaneous (sc) or IV bolus (ib)
+    :type model: string
+    :param subcompt: subcompartment
+    :param maincmpt: main compartment
+    :param peripheral: the peripheral compartments added
+    :param dose: dose function
+    :param clearance: clearance rate
+    :param times: time points to solve model"""
 
     if model == 'sc':
         # Form the SC RHS and solve the ODE.
