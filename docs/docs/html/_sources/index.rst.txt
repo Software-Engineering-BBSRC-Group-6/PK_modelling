@@ -1,6 +1,15 @@
 Welcome to pk project's documentation!
 ======================================
-.. automodule:: pkmodel2.definitions
+.. automodule:: pkmodel.definitions
+    :members:
+
+.. automodule:: pkmodel.main
+    :members:
+
+.. automodule:: pkmodel.ux
+    :members:
+
+.. automodule:: pkmodel.solver
     :members:
 
 .. toctree::
