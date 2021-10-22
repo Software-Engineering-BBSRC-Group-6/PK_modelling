@@ -104,12 +104,10 @@ def write_solution_file(solution, model, timestamp):
     :type solution: bunch
     :param model: type of model, one of 'sc' or 'ib' as defined earlier by the user.
     :type model: string
-    :param timestamp: time at which the solver was run, used to identify a
-    given run.
+    :param timestamp: time at which the solver was run, used to identify a given run.
     :type timestamp: string
-    
-    :return solutionmat: Contains timeseries data, and solutions for each
-    compartment.
+
+    :return solutionmat: Contains timeseries data, and solutions for each compartment.
     :type solutionmat: Numpy array
     """
 
