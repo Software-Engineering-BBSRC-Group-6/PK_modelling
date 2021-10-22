@@ -48,7 +48,6 @@ class InstantDose(Dose):
 
         return protocol
 
-
 class ConstantDose(Dose):
     """ConstantDose describes a dose with constant application rate.
 
