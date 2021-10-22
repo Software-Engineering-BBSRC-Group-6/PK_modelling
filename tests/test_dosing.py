@@ -1,6 +1,8 @@
+from unittest import mock
 from definitions import Compartment, form_rhs_ib
 from dosing import Dose, InstantDose, ConstantDose, build_dose
 import numpy as np
+from unittest.mock import Mock
 
 print("Running some unit tests on dosing")
 
@@ -20,5 +22,26 @@ def test_constant_dose():
     assert cdose.rate == 1.0
     assert cdose.construct == 1.0
 
+
 def test_build_dose():
-    
+    mockjsonib =  mock{
+    "model_type": "ib", 
+    "compound": "paracetamol", 
+    "dose_type": "c", 
+    "dose": 0.5, 
+    "dose_mass": null, 
+    "time_dose": null, 
+    "num_dose": null, 
+    "len_assay": 72.0, 
+    "len_interval": 0.25, 
+    "clearance": 0.4, 
+    "compartments": [[1.0, 0.3, "Main"], [0.5, 0.15, "Heart"]], 
+    "vis": "y", 
+    "curr_datetime": "1634833362.6048021"}
+
+    test = build_dose(mockjsonib)
+    assert test == 0.5
+
+
+
+
