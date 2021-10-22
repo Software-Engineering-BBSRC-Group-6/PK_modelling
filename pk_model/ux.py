@@ -151,6 +151,7 @@ def user_input():
                     except:
                         print(str_invalid)
 
+                compart.list.append((str("Perf")))
                 compart_list.append(str(input("Please enter the name of the compartment (please ensure correct spelling): ")))
                 compartments.append(compart_list)
 
@@ -203,7 +204,8 @@ def user_input():
                     
                     except:
                         print(str_invalid)
-
+                
+                compart.list.append((str("Perf")))
                 compart_list.append(str(input("Please enter the name of the compartment (please ensure correct spelling): ")))
                 compartments.append(compart_list)
                 compart_list = None
