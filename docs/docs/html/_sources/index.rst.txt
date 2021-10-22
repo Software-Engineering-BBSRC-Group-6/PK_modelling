@@ -11,16 +11,22 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
-.. automodule:: pkmodel.definitions
+.. automodule:: definitions
     :members:
 
-.. automodule:: pkmodel.main
+.. automodule:: pk_model_main_pipeline
     :members:
 
-.. automodule:: pkmodel.ux
+.. automodule:: ux
     :members:
 
-.. automodule:: pkmodel.solver
+.. automodule:: solver
+    :members:
+
+.. automodule:: visualiser
+    :members:
+
+.. automodule:: dosing
     :members:
 
 .. toctree::
