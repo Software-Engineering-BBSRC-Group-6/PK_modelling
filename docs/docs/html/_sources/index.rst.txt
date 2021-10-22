@@ -29,8 +29,6 @@ Indices and tables
 .. automodule:: visualiser
     :members:
 
-
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
