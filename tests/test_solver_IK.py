@@ -1,5 +1,5 @@
 from pk_model.definitions import Compartment, form_rhs_ib
-from pk_model.solver import calc_dose, generate_times, generate_compartments, get_solution
+from pk_model.solver import calc_dose, generate_times, generate_compartments get_solution
 import numpy as np
 import pytest
 
@@ -12,7 +12,6 @@ print("Running some unit tests")
     ('a string', None, TypeError)]
 )
 def test_calc_dose(test_input, expected, raises):
-    from solver import calc_dose
     if raises:
         with pytest.raises(raises):
             assert calc_dose(test_input) == expected
@@ -51,21 +50,13 @@ def test_generate_compartments(test_input, expected, raises):
 
 # Unit test for get_solution function
 @pytest.mark.parametrize('test_input, expected, raises',
-    [(['ingestion', 'subcmpt', 'maincmpt', 'peripherals', 2, 0.5, 12], None, AssertionError)
+    [(['ingestion', 'subcmpt', 'maincmpt', 'peripherals', 2, 0.5, 12], None, AssertionError),
+    (['sc', 'subcmpt', 'maincmpt', 'peripherals', 0, 0, 0], 0, AssertionError)
     ])
 def test_get_solution(test_input, expected, raises):
     from solver import get_solution
     if raises:
         with pytest.raises(raises):
             assert get_solution(test_input) == expected
-
-'''
-@pytest.mark.parametrize('test_input, expected, raises',
-    [([[1, 0.5, 'Main'], [[1, 1, 'Peripheral'], [0.5, 0.5, 'Peripheral']], None , None)
-    ]
-)
-def test_form_rhs_ib(maincmpt, periph):
-
-    form_rhs_ib(maincmpt, periph, calc_dose(2), 0.1)
-    assert callable(form_rhs_ib)
-'''
+    else:
+        assert get_solution(test_input) == expected
