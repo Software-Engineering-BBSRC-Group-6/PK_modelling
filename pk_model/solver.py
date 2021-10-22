@@ -3,13 +3,13 @@ from scipy.integrate import solve_ivp
 from pk_model.definitions import Compartment, form_rhs_ib, form_rhs_sc, write_solution_file
 import json
 
-# Options - to be replaced with file read-in from json.
-
 
 def calc_dose(x):
     return 1 / (1 + x ** 2)
 
 
+# Some old sample options -
+# to be removed, updated and included in some kind of unit test instead.
 parameterdict = {
     'refcmpts': [[1, 1, 'Peripheral'], [1, 0.5, 'Main'], [1, 0.2, 'Sub']],
     'dose': calc_dose,
@@ -56,7 +56,8 @@ def generate_compartments(parameterdict):
     :type refcmpts:
     """
 
-    refcmpts, model = parameterdict['compartments'], parameterdict['model_type']
+    refcmpts = parameterdict['compartments']
+    model = parameterdict['model_type']
 
     peripherals = []  # List for peripheral compartments
     # Iterates through compartments. Adds peripherals to peripheral list,
@@ -121,4 +122,5 @@ def build_and_solve_model(filename, dosing_function):
 
     write_solution_file(soln, pdict['model_type'], pdict['curr_datetime'])
 
-    return './data/{0}-{1}.csv'.format(pdict['model_type'], pdict['curr_datetime'])
+    return './data/{0}-{1}.csv'.format(pdict['model_type'],
+                                       pdict['curr_datetime'])
