@@ -61,7 +61,7 @@ To execute the file, navigate to the root directory of the pk_modelling folder i
 
 The model will then pose a series of questions, to be answered using the command line. An example runscript is provided below:
 
-How many models would you like to test? 1 /
+How many models would you like to test? 1 \
 What kind of models do you want to build? (intravenous bolous (ib) / subcutaneous (sc)): ib
 What compound or drug are you using? paracetamol
 How is the dose delivered? Constantly over time (c), Instantaneously (i) or Repeated instantaneous doses (r): c
