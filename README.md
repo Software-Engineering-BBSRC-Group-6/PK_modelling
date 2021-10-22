@@ -35,7 +35,7 @@ Our model consists of three principal modules:
 
 This repository includes the following key files/folders:
 
-- .github/workflows: directory of github actions ensuring continuous integration (CI) of repository updates 
+- .github/workflows: directory of github actions ensuring continuous integration (CI) of repository updates
 - data: directory for saving outputs
 - docs: files required for automated document production
 - jsons: directory for saving user input and passing to the solver
@@ -53,7 +53,6 @@ This repository includes the following key files/folders:
 
 # Installation
 
-<<<<<<< HEAD
 Clone the git repository to your local directory: \
 'git clone https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling' \
 Set the correct working directory: \
@@ -67,11 +66,6 @@ The project dependencies can then be installed via pip \
  'pip install -r requirements.txt' (this will also install modules required for development)' \
 Execute the main file to run the programme \
 `python -m pk_model_main_pipeline.py` \
-=======
-The project can be installed via pip: pip install oxbiodtp-7-PK-modelling
-To exeute the file, navigate to the root directory of the pk_modelling folder in terminal and enter the following:
-python -m pk_model_main_pipeline.py
->>>>>>> Updated setup.cfg, README.md, setup.py
 
 # Runtime
 
@@ -92,6 +86,3 @@ Please enter the name of the compartment (please ensure correct spelling): heart
 Would you like to generate a graph? (Y/N): y
 
 This should produce a plot of the distribution of paracetamol between the main compartment and the heart, and save the resulting .csv in teh data directory.
-
-
-
