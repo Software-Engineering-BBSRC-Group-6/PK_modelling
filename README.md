@@ -84,4 +84,5 @@ Enter volume (L), transition rate (ng/hour) of the compartment (all seperated by
 Please enter the name of the compartment (please ensure correct spelling): heart \
 Would you like to generate a graph? (Y/N): y
 
-This should produce a plot of the distribution of paracetamol between the main compartment and the heart, and save the resulting .csv in teh data directory.
+This should produce a plot of the distribution of paracetamol between the main compartment and the heart, and save the resulting .csv in the data directory.
+NB: If running multiple models, please use the same number of compartments - developers are working to correct this issue.
