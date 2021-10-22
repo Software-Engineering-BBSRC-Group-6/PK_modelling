@@ -7,3 +7,4 @@ build/*
 venv2/*
 PK_modelling.egg-info/*
 *.pyc
+.DS_Store
