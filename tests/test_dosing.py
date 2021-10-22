@@ -1,8 +1,7 @@
-from unittest import mock
-from definitions import Compartment, form_rhs_ib
-from dosing import Dose, InstantDose, ConstantDose, build_dose
+import unittest
+from pk_model.dosing import Dose, InstantDose, ConstantDose, build_dose
+import json
 import numpy as np
-from unittest.mock import Mock
 
 print("Running some unit tests on dosing")
 
@@ -24,14 +23,14 @@ def test_constant_dose():
 
 
 def test_build_dose():
-    mockjsonib =  mock{
+    data = {
     "model_type": "ib", 
     "compound": "paracetamol", 
     "dose_type": "c", 
     "dose": 0.5, 
-    "dose_mass": null, 
-    "time_dose": null, 
-    "num_dose": null, 
+    "dose_mass": None, 
+    "time_dose": None, 
+    "num_dose": None, 
     "len_assay": 72.0, 
     "len_interval": 0.25, 
     "clearance": 0.4, 
@@ -39,9 +38,11 @@ def test_build_dose():
     "vis": "y", 
     "curr_datetime": "1634833362.6048021"}
 
-    test = build_dose(mockjsonib)
+    f = 'dummy.json'
+    f = open(f , 'w')
+    dummy = json.dump(data, f)
+    f.close()
+
+    test = build_dose("dummy.json")
     assert test == 0.5
-
-
-
 
