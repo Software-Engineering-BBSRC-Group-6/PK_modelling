@@ -8,21 +8,18 @@ import time
 
 def user_input():
     """
-    This requests user input via the command line, and then returns
-    the requested arguments in a dictionary
+    This requests user input via the command line, and then returns the requested arguments in a dictionary
 
-    Variables:
-    model_type: Decides which model is build. This should return either
-    intravenous bolous, subcutaenous or both
+    :paraam model_type: Decides which model is build. This should return either intravenous bolous, subcutaenous or both
+    :type model_type: string
+    :param compound: Allows the user to specify what the compound is. Useful for reporting back and for ease of understanding
     compound: Allows the user to specify what the compound is. Useful for
-    reporting back and for ease of understanding
-    dose: Dose of compound used in ng per hour
-    len_assay: Length of time should the simulation be computed across in hours
-    len_interval: Granularity of time series in hours
-    clearance: Time for drug to clear the system in hours
-    compartments: A list of lists containing the desired compartments
-    vis: Specifies if the user wants a graph generated or just a table output
-
+    :param dose: Dose of compound used in ng per hour
+    :param len_assay: Length of time should the simulation be computed across in hours
+    :param len_interval: Granularity of time series in hours
+    :param clearance: Time for drug to clear the system in hours
+    :param compartments: A list of lists containing the desired compartments
+    :param vis: Specifies if the user wants a graph generated or just a table output
     """
     #Error messages
     num_invalid = "Invalid input, please insert a valid number"

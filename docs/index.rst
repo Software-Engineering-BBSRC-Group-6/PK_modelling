@@ -1,7 +1,8 @@
-Welcome to pk project's documentation!
+Welcome to PK project's documentation!
 ======================================
 
-Hello World!
+API for PK project modules and readme
+Repository: https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/
 
 Indices and tables
 ==================
