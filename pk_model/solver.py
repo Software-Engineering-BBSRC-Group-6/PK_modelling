@@ -90,7 +90,7 @@ def get_solution(model, subcmpt, maincmpt,
     elif model == 'ib':
         # Form the IB RHS and solve the ODE.
 
-        dqdt = form_rhs_ib(maincmpt, peripherals, calc_dose, clearance)
+        dqdt = form_rhs_ib(maincmpt, peripherals, dose, clearance)
         soln = solve_ivp(dqdt, [0, times[-1:]],
                          np.zeros(len(peripherals)+1), t_eval=times)
 

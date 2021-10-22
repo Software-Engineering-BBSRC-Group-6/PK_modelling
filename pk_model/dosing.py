@@ -44,7 +44,19 @@ class InstantDose(Dose):
             raise ValueError('Number of applications must be a positive integer.')
 
         def protocol(t):
-            return sum([DiracDelta(t - t0) for t0 in apply_times]) * self.mass
+            
+            for t0 in apply_times:
+
+                if abs(t-t0) < (1 / 120) and (t < 1/60):
+                    dose = self.mass * 60
+
+                elif abs(t-t0) < 1/120:
+                    dose = self.mass * 60
+
+                else:
+                    dose = 0
+
+            return dose
 
         return protocol
 
