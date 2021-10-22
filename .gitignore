@@ -1,3 +1,8 @@
 data/*
 __pycache__/*
-*.json
+pk_model/__pycache__/*
+jsons/*.json
+.eggs/*
+build/*
+venv2/*
+PK_modelling.egg-info/*

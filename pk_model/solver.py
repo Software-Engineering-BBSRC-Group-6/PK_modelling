@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.integrate import solve_ivp
-from definitions import Compartment, form_rhs_ib, form_rhs_sc, write_solution_file
+from pk_model.definitions import Compartment, form_rhs_ib, form_rhs_sc, write_solution_file
 import json
 
 # Options - to be replaced with file read-in from json.
