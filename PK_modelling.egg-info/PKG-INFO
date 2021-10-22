@@ -4,7 +4,7 @@ Version: 0.1.3
 Summary: 'Library for producing, solving and visualising pharmacokinetic models.'
 Home-page: https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling
 Author: 'Dan Hudson, Ishaan Kapoor, Sam Johnson, Amit Halkhoree, Cameron Anderson, Joe Pollacco'
-Author-email: joseph.pollacco@dtc.ox.ac.uk
+Author-email: 'joseph.pollacco@dtc.ox.ac.uk'
 License: MIT
 Description: [![Python application](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/run-unittests.yml/badge.svg)](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/run-unittests.yml)
         [![Check systems capacity](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/check-systems-compat.yml/badge.svg)](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/check-systems-compat.yml)
@@ -13,6 +13,9 @@ Description: [![Python application](https://github.com/Software-Engineering-BBSR
         # Pharmacokinetic Modelling Group Project
         
         A PharmacoKinetic (PK) modelling function for analysis of injected solute dynamics over time, developed by Group 8 of the 2021 Software Engineering course. This model has been developed with the end-user in mind, and includes an easy-to-use interface to guide refinement of tissue models.
+        
+        https://software-engineering-bbsrc-group-6.github.io/PK_modelling/
+        
         # Authors
         
         Amit Halkhoree - amit.halkhoree@dtc.ox.ac.uk \
