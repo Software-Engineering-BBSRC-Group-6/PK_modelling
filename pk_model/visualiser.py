@@ -6,11 +6,13 @@ import json
 # Load single JSON file and return data for plotting
 def single_plot_data(json_file, csv_file):
     '''
-    Read parameters and data from models to generate a list of model parameters,
-    data array and its dimensions
+    Read parameters and data from models to generate a list of model parameters, data array and its dimensions
 
     :param json_file: Name of the json file to be opened
+    :type json_file: string
     :param csv_file: Name of the csv file to be opened
+    :type csv_file: string
+
     :return plot_value: list containing [parameters, data_array, num_rows, num_columns]
     '''
     # Empty list to be returned
@@ -33,10 +35,9 @@ def single_plot_data(json_file, csv_file):
 # Run is list formatted as [[json1, csv1], [json2, csv2]...] 
 def collate_data(run):
     '''
-    Collate the lists returned by single_plot to return a list of lists for all simulations
-    in a run
-
+    Collate the lists returned by single_plot to return a list of lists for all simulations in a run
     :param run: list formatted as [[json1.json, csv1.csv], [json2.json, csv2.csv]...]
+
     :return collated_list: matrix containing data matrices for all simulations
     '''
     # Create collated list
@@ -52,6 +53,7 @@ def multiplot(collated_list):
     Plot overlayed simulation data from multiple runs using collated data matrix
 
     :param collated_list: matrix containing data matrices for all simulations
+
     :return: display overlayed plots for each compartment
     '''
     # Iterate over simulations to obtain maximum compartment number
@@ -100,6 +102,7 @@ def multiplot(collated_list):
     plt.tight_layout()
     # Display plot
     plt.show()
+
 
 def make_plots(filenames):
     '''
