@@ -70,17 +70,18 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="pkmodel.definitions.form_rhs_sc">
 <span class="sig-prename descclassname"><span class="pre">pkmodel.definitions.</span></span><span class="sig-name descname"><span class="pre">form_rhs_sc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subcmpt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maincmpt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peripherals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clearance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pkmodel.definitions.form_rhs_sc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Function factory to form the right-hand side of the PK ODE for IB model.
-:param subcmpt: Object corresponding to the subcutaneous compartment
-:type subcmpt: Compartment object
-:param maincmpt: Object corresponding to the main compartment
-:type maincmpt: Compartment object
-:param peripherals: List containing each peripheral compartment object
-:type peripherals: list, each listem item is Compartment.
-:param dose: Function, one argument (time), describes dosing protocol.
-:type dose: Function
-:param clearance: Clearance rate from the main compartment.
-:type clearance: float</p>
+<dd><p>Function factory to form the right-hand side of the PK ODE for IB model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>subcmpt</strong> (<em>Compartment object</em>) – Object corresponding to the subcutaneous compartment</p></li>
+<li><p><strong>maincmpt</strong> (<em>Compartment object</em>) – Object corresponding to the main compartment</p></li>
+<li><p><strong>peripherals</strong> (<em>list</em><em>, </em><em>each listem item is Compartment.</em>) – List containing each peripheral compartment object</p></li>
+<li><p><strong>dose</strong> (<em>Function</em>) – Function, one argument (time), describes dosing protocol.</p></li>
+<li><p><strong>clearance</strong> (<em>float</em>) – Clearance rate from the main compartment.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -91,17 +92,17 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>solution</strong> (<em>bunch</em>) – solution from scipy solve_ivp().</p></li>
-<li><p><strong>model</strong> (<em>string</em>) – type of model, one of ‘sc’ or ‘ib’ as defined earlier by
-user.</p></li>
-<li><p><strong>timestamp</strong> (<em>string</em>) – time at which the solver was run, used to identify a
-given run.</p></li>
+<li><p><strong>model</strong> – type of model, one of ‘sc’ or ‘ib’ as defined earlier by</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return solutionmat</dt>
-<dd class="field-even"><p>Contains timeseries data, and solutions for each</p>
-</dd>
 </dl>
-<p>compartment.
+<p>user.
+:type model: string
+:param timestamp: time at which the solver was run, used to identify a
+given run.
+:type timestamp: string
+:return solutionmat: Contains timeseries data, and solutions for each
+compartment.
 :type solutionmat: Numpy array</p>
 </dd></dl>
 
