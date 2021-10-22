@@ -33,8 +33,12 @@
             
   <section id="welcome-to-pk-project-s-documentation">
 <h1>Welcome to PK project’s documentation!<a class="headerlink" href="#welcome-to-pk-project-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>API for PK project modules and readme
-Repository: <a class="reference external" href="https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/">https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/</a></p>
+<p>API for PK project modules and readme</p>
+<p># Pharmacokinetic Modelling Group Project</p>
+<p>A PharmacoKinetic (PK) modelling function for analysis of injected solute dynamics over time, developed by Group 6 of the 2021 Software Engineering course. This model has been developed with the end-user in mind, and includes an easy-to-use interface to guide refinement of tissue models.</p>
+<p><a class="reference external" href="https://software-engineering-bbsrc-group-6.github.io/PK_modelling/">https://software-engineering-bbsrc-group-6.github.io/PK_modelling/</a></p>
+<p># Authors</p>
+<p>Amit Halkhoree - <a class="reference external" href="mailto:amit&#46;halkhoree&#37;&#52;&#48;dtc&#46;ox&#46;ac&#46;uk">amit<span>&#46;</span>halkhoree<span>&#64;</span>dtc<span>&#46;</span>ox<span>&#46;</span>ac<span>&#46;</span>uk</a> Cameron Anderson - <a class="reference external" href="mailto:cameron&#46;anderson&#37;&#52;&#48;dtc&#46;ox&#46;ac&#46;uk">cameron<span>&#46;</span>anderson<span>&#64;</span>dtc<span>&#46;</span>ox<span>&#46;</span>ac<span>&#46;</span>uk</a> Dan Hudson - <a class="reference external" href="mailto:alexander&#46;hudson&#37;&#52;&#48;dtc&#46;ox&#46;ac&#46;uk">alexander<span>&#46;</span>hudson<span>&#64;</span>dtc<span>&#46;</span>ox<span>&#46;</span>ac<span>&#46;</span>uk</a> Ishaan Kapoor - <a class="reference external" href="mailto:ishaan&#46;kapoor&#37;&#52;&#48;dtc&#46;ox&#46;ac&#46;uk">ishaan<span>&#46;</span>kapoor<span>&#64;</span>dtc<span>&#46;</span>ox<span>&#46;</span>ac<span>&#46;</span>uk</a> Joseph Pollacco - <a class="reference external" href="mailto:joseph&#46;pollacco&#37;&#52;&#48;dtc&#46;ox&#46;ac&#46;uk">joseph<span>&#46;</span>pollacco<span>&#64;</span>dtc<span>&#46;</span>ox<span>&#46;</span>ac<span>&#46;</span>uk</a> Samuel Johnson - <a class="reference external" href="mailto:samuel&#46;johnson&#37;&#52;&#48;dtc&#46;ox&#46;ac&#46;uk">samuel<span>&#46;</span>johnson<span>&#64;</span>dtc<span>&#46;</span>ox<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
 </section>
 <section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
@@ -260,7 +264,13 @@ and a time between applications.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="visualiser.make_plots">
 <span class="sig-prename descclassname"><span class="pre">visualiser.</span></span><span class="sig-name descname"><span class="pre">make_plots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filenames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualiser.make_plots" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create plots for given filenames</p>
+<dd><p>Combine multiplot and collate_data functions to produce overlayed plots of drug concentration against time for
+all user specified compartments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filenames</strong> – Simulation filename list formatted as [[json1, csv1], [json2, csv2]…]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
