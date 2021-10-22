@@ -27,9 +27,9 @@ The field of Pharmacokinetics (PK) provides a quantitative basis for describing 
 # Model overview
 
 Our model consists of three principal modules:
-- A solver (solver.py) that computes the distribution of solute in different tissue compartments over time, given input parameters including the number of compartments to model, dose,  mode of administration  (intravenous or subcutaneous), compartment volume and transition rate constants.
+- A solver (solver.py) that computes the distribution of solute in different tissue compartments over time, given input parameters including the number of compartments to model, dose,  mode of administration  (intravenous or subcutaneous), compartment volume and transition rate constants
 - A user interface (ux.py) that prompts the user to configure the model
-- A visualisation module (visualiser.py) that generates and saves comparative plots to facilitate evaluation of PK using different administration methods.
+- A visualisation module (visualiser.py) that generates and saves comparative plots to facilitate evaluation of PK using different administration methods
 
 # Folder structure
 
@@ -53,27 +53,36 @@ This repository includes the following key files/folders:
 
 # Installation
 
-The project can be installed via pip: `pip install pkproject-8` CHECK
-To execute the file, navigate to the root directory of the pk_modelling folder in terminal and enter the following:
+Clone the git repository to your local directory: 
+'git clone https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling'
+Set the correct working directory: 
+'cd PK_modelling'
+We recommend then creating and activating a virtual environment 
+'python 3 venv venv'
+'source venv/bin/activate'
+The project dependencies can then be installed via pip
+ `pip install oxbiodtp-7-PK-modelling` 
+ OR
+ 'pip install -r requirements.txt' (this will also install modules required for development)'
+Execute the main file to run the programme
 `python -m pk_model_main_pipeline.py`
-
 # Runtime
 
 The model will then pose a series of questions, to be answered using the command line. An example runscript is provided below:
 
-How many models would you like to test?  1 \
-What kind of models do you want to build? (intravenous bolous (ib) / subcutaneous (sc)):  ib \
+How many models would you like to test? 1 \
+What kind of models do you want to build? (intravenous bolous (ib) / subcutaneous (sc)): ib \
 What compound or drug are you using? paracetamol \
-How is the dose delivered? Constantly over time (c), Instantaneously (i) or Repeated instantaneous doses (r): c \
-What is the dose of paracetamol that you want to test? (units in ng per hour): 500 \
-What time period would you like to simluate the model? (units in hours): 48 \
+How is the dose delivered? Constantly over time (c), Instantaneously (i) or Repeated instantaneous doses (r): i \
+What is the mass of the dose of paracetamol that you want to test? (units in ng): 500 \
+What time period would you like to simluate the model? (units in hours): 24 \
 What interval time would you like in the simulation? (units in hours): 1 \
 What is the clearance rate? (units in ng/hour): 50 \
 Enter volume (L), transition rate (ng/hour) for the main compartment (all seperated by spaces - eg: 5 25 ): 7 50 \
 How many peripheral compartments do you want to test?: 1 \
-Enter volume (L), transition rate (ng/hour) of the compartment (all seperated by spaces - eg: 5 25): 2 10 \
+Enter volume (L), transition rate (ng/hour) of the compartment (all seperated by spaces - eg: 5 25): 2 25 \
 Please enter the name of the compartment (please ensure correct spelling): heart \
-Would you like to generate a graph? (Y/N): y \
+Would you like to generate a graph? (Y/N): y
 
 This should produce a plot of the distribution of paracetamol between the main compartment and the heart, and save the resulting .csv in teh data directory.
 
