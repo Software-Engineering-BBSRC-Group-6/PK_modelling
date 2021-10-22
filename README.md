@@ -5,7 +5,9 @@
 [![Documentation Status](https://readthedocs.org/projects/pk-proj/badge/?version=latest)](https://pk-proj.readthedocs.io/en/latest/?badge=latest)
 # Pharmacokinetic Modelling Group Project
 
-A PharmacoKinetic (PK) modelling function for analysis of injected solute dynamics over time, developed by Group 8 of the 2021 Software Engineering course. This model has been developed with the end-user in mind, and includes an easy-to-use interface to guide refinement of tissue models.
+A PharmacoKinetic (PK) modelling function for analysis of injected solute dynamics over time, developed by Group 6 of the 2021 Software Engineering course. This model has been developed with the end-user in mind, and includes an easy-to-use interface to guide refinement of tissue models.
+
+![alt text](https://sabs-r3.github.io/software-engineering-projects/fig/pk1.jpg)
 
 https://software-engineering-bbsrc-group-6.github.io/PK_modelling/
 
