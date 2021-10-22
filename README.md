@@ -7,8 +7,6 @@
 
 A PharmacoKinetic (PK) modelling function for analysis of injected solute dynamics over time, developed by Group 6 of the 2021 Software Engineering course. This model has been developed with the end-user in mind, and includes an easy-to-use interface to guide refinement of tissue models.
 
-![alt text](https://sabs-r3.github.io/software-engineering-projects/fig/pk1.jpg)
-
 https://software-engineering-bbsrc-group-6.github.io/PK_modelling/
 
 # Authors
@@ -25,6 +23,7 @@ Ref: https://sabs-r3.github.io/software-engineering-projects/01-introduction/ind
 
 The field of Pharmacokinetics (PK) provides a quantitative basis for describing the delivery of a drug to a patient, the diffusion of that drug through the plasma/body tissue, and the subsequent clearance of the drug from the patient’s system. PK is used to ensure that there is sufficient concentration of the drug to maintain the required efficacy of the drug, while ensuring that the concentration levels remain below the toxic threshold. Pharmacokinetic (PK) models are often combined with Pharmacodynamic (PD) models, which model the positive effects of the drug, such as the binding of a drug to the biological target, and/or undesirable side effects, to form a full PKPD model of the drug-body interaction. This project will only focus on PK, neglecting the interaction with a PD model.
 
+![alt text](https://sabs-r3.github.io/software-engineering-projects/fig/pk1.jpg)
 # Model overview
 
 Our model consists of three principal modules:
@@ -62,7 +61,7 @@ To execute the file, navigate to the root directory of the pk_modelling folder i
 
 The model will then pose a series of questions, to be answered using the command line. An example runscript is provided below:
 
-How many models would you like to test? 1
+How many models would you like to test? 1 /
 What kind of models do you want to build? (intravenous bolous (ib) / subcutaneous (sc)): ib
 What compound or drug are you using? paracetamol
 How is the dose delivered? Constantly over time (c), Instantaneously (i) or Repeated instantaneous doses (r): c
