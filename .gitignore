@@ -4,7 +4,10 @@ pk_model/__pycache__/*
 jsons/*.json
 .eggs/*
 build/*
+build/lib/pk_model/*
+dist/*
 venv2/*
 PK_modelling.egg-info/*
 *.pyc
 .DS_Store
+oxbiodtp_7_PK_modelling.egg-info/*

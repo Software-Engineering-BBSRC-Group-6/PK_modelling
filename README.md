@@ -51,7 +51,7 @@ This repository includes the following key files/folders:
 
 # Installation
 
-The project can be installed via pip: pip install pkproject-8 CHECK
+The project can be installed via pip: pip install oxbiodtp-7-PK-modelling
 To exeute the file, navigate to the root directory of the pk_modelling folder in terminal and enter the following:
 python -m pk_model_main_pipeline.py
 
