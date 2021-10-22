@@ -100,18 +100,14 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>solution</strong> (<em>bunch</em>) – solution from scipy solve_ivp().</p></li>
-<li><p><strong>model</strong> – type of model, one of ‘sc’ or ‘ib’ as defined earlier by</p></li>
+<li><p><strong>model</strong> (<em>string</em>) – type of model, one of ‘sc’ or ‘ib’ as defined earlier by the user.</p></li>
+<li><p><strong>timestamp</strong> (<em>string</em>) – time at which the solver was run, used to identify a given run.</p></li>
 </ul>
 </dd>
+<dt class="field-even">Return solutionmat</dt>
+<dd class="field-even"><p>Contains timeseries data, and solutions for each compartment.</p>
+</dd>
 </dl>
-<p>user.
-:type model: string
-:param timestamp: time at which the solver was run, used to identify a
-given run.
-:type timestamp: string
-:return solutionmat: Contains timeseries data, and solutions for each
-compartment.
-:type solutionmat: Numpy array</p>
 </dd></dl>
 
 <span class="target" id="module-pkmodel.ux"></span><dl class="py function">
