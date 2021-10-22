@@ -4,6 +4,7 @@
 # and then returns a json with the answers to be solved
 import json
 import time
+import os
 
 
 def user_input():
@@ -150,6 +151,7 @@ def user_input():
                     except:
                         print(str_invalid)
 
+                compart_list.append((str("Perf")))
                 compart_list.append(str(input("Please enter the name of the compartment (please ensure correct spelling): ")))
                 compartments.append(compart_list)
 
@@ -202,7 +204,8 @@ def user_input():
                     
                     except:
                         print(str_invalid)
-
+                
+                compart_list.append((str("Perf")))
                 compart_list.append(str(input("Please enter the name of the compartment (please ensure correct spelling): ")))
                 compartments.append(compart_list)
                 compart_list = None
@@ -242,13 +245,12 @@ def param_to_file():
     Writes dictionary generated from user_input() and generates .json file
     """
     data = user_input()
-    fname = data.get('curr_datetime')
-    f = open(fname+".json", "w")
+    fname = 'jsons/' + data.get('curr_datetime') + '.json'
+    f = open(fname , 'w')
     json.dump(data, f)
     f.close()
-    filename = fname+".json"
 
-    return filename
+    return fname
 
 
 def num_models():

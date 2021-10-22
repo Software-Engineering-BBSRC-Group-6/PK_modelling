@@ -1,1 +1,0 @@
-{"model_type": "ib", "compound": " ofatumumab", "dose_type": "r", "dose": null, "dose_mass": "500", "time_dose": "24", "num_dose": "2", "len_assay": "48", "len_interval": "1", "clearance": "6", "compartments": [["5", "25", "Main"], ["2", "20"], ["2", "20", "kidney"]], "vis": "y", "curr_datetime": "1634827335.39259"}
