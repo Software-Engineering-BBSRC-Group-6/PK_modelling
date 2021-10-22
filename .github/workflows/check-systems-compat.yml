@@ -5,9 +5,9 @@ name: Check Systems Compatability
 
 on:
   push:
-    branches: [ 0.1.5-dh ]
+    branches: [ 0.3.0-dh-1.0]
   pull_request:
-    branches: [ 0.1.5-dh ]
+    branches: [ 0.3.0-dh-1.0 ]
 
 jobs:
   build:
@@ -29,4 +29,6 @@ jobs:
         pip install -r requirements.txt
     - name: Run PyTest
       run: |
-        python -m pytest tests/test_solver.py
+        python -m pytest tests/test_definitions.py
+        python -m pytest tests/test_ux.py
+        python -m pytest tests/test_dosing.py
