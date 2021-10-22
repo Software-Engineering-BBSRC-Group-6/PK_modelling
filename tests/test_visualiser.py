@@ -18,8 +18,8 @@ def test_single_plot_data():
     assert len(single_plot_data(json_file, csv_file)) == 4
     assert type(single_plot_data(json_file, csv_file)[0]) == dict
     assert type(single_plot_data(json_file, csv_file)[1]) == np.ndarray
-    assert type(single_plot_data(json_file, csv_file)[1]) == int
-    assert type(single_plot_data(json_file, csv_file)[1]) == int
+    assert type(single_plot_data(json_file, csv_file)[2]) == int
+    assert type(single_plot_data(json_file, csv_file)[3]) == int
 
 
 def test_collate_data():
