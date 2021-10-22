@@ -48,6 +48,7 @@ def collate_data(run):
     return collated_list
 
 # Plot data from collated data structure
+# Plot data from collated data structure
 def multiplot(collated_list):
     '''
     Plot overlayed simulation data from multiple runs using collated data matrix
@@ -64,23 +65,27 @@ def multiplot(collated_list):
     # Account for time (not a compartment)
     compartments = max(comp_list) - 1
 
-    # Initialise list to contain model type for each simulation 
+    # Initialise list to contain model type for each simulation
     mod_array = []
 
     # Initialise subplot space to contain compartment plots
     fig, axs = plt.subplots(1, compartments)
     row_number = len(collated_list[0][1][:,0])
-    
-        
+   
+       
     # Iterate over simulation data
     for i in range(len(collated_list)):
-        
-        if collated_list[i][0]['model_type'] == 'ib': 
+        #if collated_list[i][3] < compartments:
+        #    differ = compartments - collated_list[i][3]
+        #    new_cols = differ * zeros_column
+        #    collated_list[i][1].append(new_cols)
+
+        if collated_list[i][0]['model_type'] == 'ib':
             for j in range(1, compartments):
                 # Collated list indexed as collated_list[index simulation][index plot_values][index data type]
                 # Plot time against drug level in each compartment
                 axs[j].plot(collated_list[0][1][:,0], collated_list[i][1][:,j+1])
-                axs[j].set_title("Compartment: " + str(collated_list[0][0]['compartments'][j][2]))
+                axs[j].set_title("Compartment: " + str(collated_list[0][0]['compartments'][j-1][-1]))
                 axs[j].set(xlabel='Time / hours', ylabel='Quantity / nanograms')
 
         elif collated_list[i][0]['model_type'] == 'sc':
@@ -88,21 +93,23 @@ def multiplot(collated_list):
                 # Collated list indexed as collated_list[index simulation][index plot_values][index data type]
                 # Plot time against drug level in each compartment
                 axs[j].plot(collated_list[0][1][:,0], collated_list[i][1][:,j+1])
-                axs[j].set_title("Compartment: " + str(collated_list[0][0]['compartments'][j][2]))
+                axs[j].set_title("Compartment: " + str(collated_list[0][0]['compartments'][j-1][-1]))
                 axs[j].set(xlabel='Time / hours', ylabel='Quantity / nanograms')
 
     # Check if any simulations are 'sc' model type. If not - delete sub compartment plot and restructure plot space
     for i in range(len(collated_list)):
         mod_array.append(collated_list[i][0]["model_type"])
-        
+
     if "sc" not in mod_array:
         # Delete first plot
         fig.delaxes(axs[0])
         # Restructure plot space
         for i in range(1, compartments):
             axs[i].change_geometry(1,compartments - 1,i)
+
     plt.tight_layout()
     # Display plot
+   
     plt.show()
     
 
