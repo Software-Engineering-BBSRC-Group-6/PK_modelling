@@ -20,10 +20,12 @@ return {
 # Load single JSON file and return data for plotting
 def single_plot_data(json_file, csv_file):
     '''
-    Read parameters and data from models to generate a list of model parameters,
-    data array and its dimensions
+    Read parameters and data from models to generate a list of model parameters, data array and its dimensions
+    
     :param json_file: Name of the json file to be opened
+    :type json_file: string
     :param csv_file: Name of the csv file to be opened
+    :type csv_file: string
     :return plot_value: list containing [parameters, data_array, num_rows, num_columns]
     '''
     # Empty list to be returned
