@@ -20,27 +20,24 @@ class Compartment():
 def form_rhs_ib(maincmpt, peripherals, dose, clearance):
     """Function factory to form the right-hand side of the PK ODE for IB model.
 
-    :param maincmpt: Object corresponding to the main compartment
-    :type maincmpt: compartment
-    :param peripherals: List containing each peripheral compartment object
-    :type peripherals: list, each listem item is Compartment.
-    :param dose: Function, one argument (time), describes dosing protocol.
-    :type dose: Function
-    :param clearance: Clearance rate from the main compartment.
-    :type clearance: float
+        :param maincmpt: Object corresponding to the main compartment
+        :type maincmpt: compartment
+        :param peripherals: List containing each peripheral compartment object
+        :type peripherals: list, each listem item is Compartment.
+        :param dose: Function, one argument (time), describes dosing protocol.
+        :type dose: Function
+        :param clearance: Clearance rate from the main compartment.
+        :type clearance: float
 
-    :return rhs_ib: RHS of the PK ODE for the IB model, taking parameters t
-    (time) and an N-dimensional vector of q (floats).
+        :return rhs_ib: RHS of the PK ODE for the IB model, taking parameters t (time) and an N-dimensional vector of q (floats).
     """
 
     def rhs_ib(t, q):
-        """Returns the right-hand side of the ODE for the IB model, including
-        the parameters of the various compartments.
-
+        """Returns the right-hand side of the ODE for the IB model, including the parameters of the various compartments.
+        
         :param t: time
         :type t: float
-        :param q: N-dimensional vector with q[0] as the main compartment and
-        q[1] ... q[N-1] as the peripheral compartments.
+        :param q: N-dimensional vector with q[0] as the main compartment and q[1] ... q[N-1] as the peripheral compartments.
         :type q: numpy array of floats of size (N,).
 
         :return dqdt: The value of the N-dimensional time derivative at time t.
@@ -61,6 +58,7 @@ def form_rhs_ib(maincmpt, peripherals, dose, clearance):
 
 def form_rhs_sc(subcmpt, maincmpt, peripherals, dose, clearance):
     """Function factory to form the right-hand side of the PK ODE for IB model.
+
     :param subcmpt: Object corresponding to the subcutaneous compartment
     :type subcmpt: Compartment object
     :param maincmpt: Object corresponding to the main compartment
@@ -74,14 +72,11 @@ def form_rhs_sc(subcmpt, maincmpt, peripherals, dose, clearance):
     """
 
     def rhs_sc(t, q):
-        """Returns the right-hand side of the ODE for the SC model, including
-        the parameters of the various compartments.
+        """Returns the right-hand side of the ODE for the SC model, including the parameters of the various compartments.
 
         :param t: time
         :type t: float
-        :param q: N-dimensional vector with q[0] as the sub compartment,
-        q[1] as the main compartment, and q[2] ... q[N-1] as the peripheral
-         compartments.
+        :param q: N-dimensional vector with q[0] as the sub compartment, q[1] as the main compartment, and q[2] ... q[N-1] as the peripheral compartments.
         :type q: numpy array of floats of size (N,).
 
         :return dqdt: The value of the N-dimensional time derivative at time t.
@@ -107,15 +102,12 @@ def write_solution_file(solution, model, timestamp):
 
     :param solution: solution from scipy solve_ivp().
     :type solution: bunch
-    :param model: type of model, one of 'sc' or 'ib' as defined earlier by
-     user.
+    :param model: type of model, one of 'sc' or 'ib' as defined earlier by the user.
     :type model: string
-    :param timestamp: time at which the solver was run, used to identify a
-     given run.
-    :type timestamp:  string
+    :param timestamp: time at which the solver was run, used to identify a given run.
+    :type timestamp: string
 
-    :return solutionmat: Contains timeseries data, and solutions for each
-    compartment.
+    :return solutionmat: Contains timeseries data, and solutions for each compartment.
     :type solutionmat: Numpy array
     """
 
