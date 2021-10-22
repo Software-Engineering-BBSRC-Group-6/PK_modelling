@@ -61,21 +61,21 @@ To execute the file, navigate to the root directory of the pk_modelling folder i
 
 The model will then pose a series of questions, to be answered using the command line. An example runscript is provided below:
 
-How many models would you like to test? 1 \
-What kind of models do you want to build? (intravenous bolous (ib) / subcutaneous (sc)): ib
-What compound or drug are you using? paracetamol
-How is the dose delivered? Constantly over time (c), Instantaneously (i) or Repeated instantaneous doses (r): c
-What is the dose of paracetamol that you want to test? (units in ng per hour): 500
-What time period would you like to simluate the model? (units in hours): 48
-What interval time would you like in the simulation? (units in hours): 1
-What is the clearance rate? (units in ng/hour): 50
-Enter volume (L), transition rate (ng/hour) for the main compartment (all seperated by spaces - eg: 5 25 ): 7 50
-How many peripheral compartments do you want to test?: 1
-Enter volume (L), transition rate (ng/hour) of the compartment (all seperated by spaces - eg: 5 25): 2 10
-Please enter the name of the compartment (please ensure correct spelling): heart
-Would you like to generate a graph? (Y/N): y
+How many models would you like to test?  1 \
+What kind of models do you want to build? (intravenous bolous (ib) / subcutaneous (sc)):  ib \
+What compound or drug are you using? paracetamol \
+How is the dose delivered? Constantly over time (c), Instantaneously (i) or Repeated instantaneous doses (r): c \
+What is the dose of paracetamol that you want to test? (units in ng per hour): 500 \
+What time period would you like to simluate the model? (units in hours): 48 \
+What interval time would you like in the simulation? (units in hours): 1 \
+What is the clearance rate? (units in ng/hour): 50 \
+Enter volume (L), transition rate (ng/hour) for the main compartment (all seperated by spaces - eg: 5 25 ): 7 50 \
+How many peripheral compartments do you want to test?: 1 \
+Enter volume (L), transition rate (ng/hour) of the compartment (all seperated by spaces - eg: 5 25): 2 10 \
+Please enter the name of the compartment (please ensure correct spelling): heart \
+Would you like to generate a graph? (Y/N): y \
 
-This should produce a plot of the distribution of paracetamol between the main compartment and the heart, and save the resulting figure in data/xxx.
+This should produce a plot of the distribution of paracetamol between the main compartment and the heart, and save the resulting .csv in teh data directory.
 
 
 
