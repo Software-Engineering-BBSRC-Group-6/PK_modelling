@@ -200,24 +200,33 @@ Repository: <a class="reference external" href="https://github.com/Software-Engi
 <span class="target" id="module-visualiser"></span><dl class="py function">
 <dt class="sig sig-object py" id="visualiser.collate_data">
 <span class="sig-prename descclassname"><span class="pre">visualiser.</span></span><span class="sig-name descname"><span class="pre">collate_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualiser.collate_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Collate the lists returned by single_plot to return a list of lists for all simulations
-in a run
-:param run: list formatted as [[json1.json, csv1.csv], [json2.json, csv2.csv]…]
-:return collated_list: matrix containing data matrices for all simulations</p>
+<dd><p>Collate the lists returned by single_plot to return a list of lists for all simulations in a run
+:param run: list formatted as [[json1.json, csv1.csv], [json2.json, csv2.csv]…]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return collated_list</dt>
+<dd class="field-odd"><p>matrix containing data matrices for all simulations</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="visualiser.make_plots">
 <span class="sig-prename descclassname"><span class="pre">visualiser.</span></span><span class="sig-name descname"><span class="pre">make_plots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filenames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualiser.make_plots" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fill me in later.</p>
+<dd><p>Create plots for given filenames</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="visualiser.multiplot">
 <span class="sig-prename descclassname"><span class="pre">visualiser.</span></span><span class="sig-name descname"><span class="pre">multiplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collated_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualiser.multiplot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot overlayed simulation data from multiple runs using collated data matrix
-:param collated_list: matrix containing data matrices for all simulations
-:return: display overlayed plots for each compartment</p>
+<dd><p>Plot overlayed simulation data from multiple runs using collated data matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>collated_list</strong> – matrix containing data matrices for all simulations</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>display overlayed plots for each compartment</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
