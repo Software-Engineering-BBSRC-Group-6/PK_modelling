@@ -1,10 +1,10 @@
 data/*
-__pycache__/*
-pk_model/__pycache__/*
+__pycache__/**
+pk_model/__pycache__/**
 jsons/*.json
-.eggs/*
-build/*
-venv2/*
-PK_modelling.egg-info/*
+.eggs/**
+build/**
+venv2/**
+PK_modelling.egg-info/**
 *.pyc
 .DS_Store
