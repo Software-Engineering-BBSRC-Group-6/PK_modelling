@@ -4,7 +4,7 @@
 from ux import num_models, param_to_file
 from solver import build_and_solve_model
 from dosing import build_dose
-# from visualiser import multiplot
+from visualiser import make_plots
 
 # Get number of models that the user wants to compare.
 N = num_models()
@@ -25,4 +25,4 @@ for i in range(N):
     filenames.append([current_json, current_csv])
 
 # Visualising stuff will go here
-
+make_plots(filenames)
