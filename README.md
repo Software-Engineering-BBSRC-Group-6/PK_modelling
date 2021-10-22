@@ -52,7 +52,7 @@ This repository includes the following key files/folders:
 # Installation
 
 The project can be installed via pip: pip install pkproject-8 CHECK
-To exeute the file, navigate to the root directory of the pk_modelling folder in terminal and enter the following:
+To execute the file, navigate to the root directory of the pk_modelling folder in terminal and enter the following:
 python -m pk_model_main_pipeline.py
 
 # Runtime
