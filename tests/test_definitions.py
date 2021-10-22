@@ -1,4 +1,4 @@
-from pk_model.definitions import Compartment, form_rhs_ib, form_rhs_sc, rhs_ib, rhs_sc
+from pk_model.definitions import Compartment, form_rhs_ib, form_rhs_sc
 import numpy as np
 import pytest
 
