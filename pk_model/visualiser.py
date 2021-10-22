@@ -69,7 +69,9 @@ def multiplot(collated_list):
 
     # Initialise subplot space to contain compartment plots
     fig, axs = plt.subplots(1, compartments)
-
+    row_number = len(collated_list[0][1][:,0])
+    
+        
     # Iterate over simulation data
     for i in range(len(collated_list)):
         
@@ -102,6 +104,7 @@ def multiplot(collated_list):
     plt.tight_layout()
     # Display plot
     plt.show()
+    
 
 
 def make_plots(filenames):
