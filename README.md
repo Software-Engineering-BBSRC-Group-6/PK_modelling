@@ -53,6 +53,7 @@ This repository includes the following key files/folders:
 
 # Installation
 
+<<<<<<< HEAD
 Clone the git repository to your local directory: \
 'git clone https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling' \
 Set the correct working directory: \
@@ -66,6 +67,11 @@ The project dependencies can then be installed via pip \
  'pip install -r requirements.txt' (this will also install modules required for development)' \
 Execute the main file to run the programme \
 `python -m pk_model_main_pipeline.py` \
+=======
+The project can be installed via pip: pip install oxbiodtp-7-PK-modelling
+To exeute the file, navigate to the root directory of the pk_modelling folder in terminal and enter the following:
+python -m pk_model_main_pipeline.py
+>>>>>>> Updated setup.cfg, README.md, setup.py
 
 # Runtime
 
