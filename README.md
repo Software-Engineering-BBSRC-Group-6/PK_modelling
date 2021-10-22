@@ -5,6 +5,9 @@
 # Pharmacokinetic Modelling Group Project
 
 A PharmacoKinetic (PK) modelling function for analysis of injected solute dynamics over time, developed by Group 8 of the 2021 Software Engineering course. This model has been developed with the end-user in mind, and includes an easy-to-use interface to guide refinement of tissue models.
+
+https://software-engineering-bbsrc-group-6.github.io/PK_modelling/
+
 # Authors
 
 Amit Halkhoree - amit.halkhoree@dtc.ox.ac.uk \
