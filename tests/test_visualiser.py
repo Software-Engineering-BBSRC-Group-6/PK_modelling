@@ -1,3 +1,5 @@
+print('Running tests on visualiser script')
+
 def test_single_plot_data():
     from visualiser import single_plot_data
 
