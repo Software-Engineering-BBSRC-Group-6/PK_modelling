@@ -31,7 +31,9 @@ jobs:
     #     flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Run PyTest
       run: |
-        python -m pytest tests/test_solver.py
+        python -m pytest tests/test_definitions.py
+        python -m pytest tests/test_ux.py
+        python -m pytest tests/test_dosing.py
     - name: Check coverage
       run: |
         coverage run -m pytest
