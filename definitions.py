@@ -29,8 +29,7 @@ def form_rhs_ib(maincmpt, peripherals, dose, clearance):
         :param clearance: Clearance rate from the main compartment.
         :type clearance: float
 
-        :return rhs_ib: RHS of the PK ODE for the IB model, taking parameters t
-        (time) and an N-dimensional vector of q (floats).
+        :return rhs_ib: RHS of the PK ODE for the IB model, taking parameters t (time) and an N-dimensional vector of q (floats).
     """
 
     def rhs_ib(t, q):
