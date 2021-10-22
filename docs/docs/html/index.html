@@ -39,49 +39,6 @@
 <p><a class="reference external" href="https://software-engineering-bbsrc-group-6.github.io/PK_modelling/">https://software-engineering-bbsrc-group-6.github.io/PK_modelling/</a></p>
 <p># Authors</p>
 <p>Amit Halkhoree - <a class="reference external" href="mailto:amit&#46;halkhoree&#37;&#52;&#48;dtc&#46;ox&#46;ac&#46;uk">amit<span>&#46;</span>halkhoree<span>&#64;</span>dtc<span>&#46;</span>ox<span>&#46;</span>ac<span>&#46;</span>uk</a> Cameron Anderson - <a class="reference external" href="mailto:cameron&#46;anderson&#37;&#52;&#48;dtc&#46;ox&#46;ac&#46;uk">cameron<span>&#46;</span>anderson<span>&#64;</span>dtc<span>&#46;</span>ox<span>&#46;</span>ac<span>&#46;</span>uk</a> Dan Hudson - <a class="reference external" href="mailto:alexander&#46;hudson&#37;&#52;&#48;dtc&#46;ox&#46;ac&#46;uk">alexander<span>&#46;</span>hudson<span>&#64;</span>dtc<span>&#46;</span>ox<span>&#46;</span>ac<span>&#46;</span>uk</a> Ishaan Kapoor - <a class="reference external" href="mailto:ishaan&#46;kapoor&#37;&#52;&#48;dtc&#46;ox&#46;ac&#46;uk">ishaan<span>&#46;</span>kapoor<span>&#64;</span>dtc<span>&#46;</span>ox<span>&#46;</span>ac<span>&#46;</span>uk</a> Joseph Pollacco - <a class="reference external" href="mailto:joseph&#46;pollacco&#37;&#52;&#48;dtc&#46;ox&#46;ac&#46;uk">joseph<span>&#46;</span>pollacco<span>&#64;</span>dtc<span>&#46;</span>ox<span>&#46;</span>ac<span>&#46;</span>uk</a> Samuel Johnson - <a class="reference external" href="mailto:samuel&#46;johnson&#37;&#52;&#48;dtc&#46;ox&#46;ac&#46;uk">samuel<span>&#46;</span>johnson<span>&#64;</span>dtc<span>&#46;</span>ox<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
-<p># Background
-Ref: <a class="reference external" href="https://sabs-r3.github.io/software-engineering-projects/01-introduction/index.html">https://sabs-r3.github.io/software-engineering-projects/01-introduction/index.html</a>.</p>
-<p>The field of Pharmacokinetics (PK) provides a quantitative basis for describing the delivery of a drug to a patient, the diffusion of that drug through the plasma/body tissue, and the subsequent clearance of the drug from the patient’s system. PK is used to ensure that there is sufficient concentration of the drug to maintain the required efficacy of the drug, while ensuring that the concentration levels remain below the toxic threshold. Pharmacokinetic (PK) models are often combined with Pharmacodynamic (PD) models, which model the positive effects of the drug, such as the binding of a drug to the biological target, and/or undesirable side effects, to form a full PKPD model of the drug-body interaction. This project will only focus on PK, neglecting the interaction with a PD model.</p>
-<p>![alt text](<a class="reference external" href="https://sabs-r3.github.io/software-engineering-projects/fig/pk1.jpg">https://sabs-r3.github.io/software-engineering-projects/fig/pk1.jpg</a>)
-# Model overview</p>
-<p>Our model consists of three principal modules:
-- A solver (solver.py) that computes the distribution of solute in different tissue compartments over time, given input parameters including the number of compartments to model, dose,  mode of administration  (intravenous or subcutaneous), compartment volume and transition rate constants
-- A user interface (ux.py) that prompts the user to configure the model
-- A visualisation module (visualiser.py) that generates and saves comparative plots to facilitate evaluation of PK using different administration methods</p>
-<p># Folder structure</p>
-<p>This repository includes the following key files/folders:</p>
-<ul class="simple">
-<li><p>.github/workflows: directory of github actions ensuring continuous integration (CI) of repository updates</p></li>
-<li><p>data: directory for saving outputs</p></li>
-<li><p>docs: files required for automated document production</p></li>
-<li><p>jsons: directory for saving user input and passing to the solver</p></li>
-<li><dl class="simple">
-<dt>pk_model: directory for main executables</dt><dd><ul>
-<li><p>definitons.py: Key helper functions for the solver</p></li>
-<li><p>dosing.py: computes dose changes for different administration models</p></li>
-<li><p>solver.py: Solver model for PK modelling</p></li>
-<li><p>ux.py: User interface executable</p></li>
-<li><p>visualiser.py Graph plotting function</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p>README.md: text file populating this guide</p></li>
-<li><p>tests: unit tests fed to pytest for continuous integration</p></li>
-<li><p>venv: virtual environment including dependencies for this package</p></li>
-<li><p>.gitignore: file controlling which files are/are not updated by git during development</p></li>
-<li><p>requirements.txt: Dependencies required for proper package functioning</p></li>
-</ul>
-<p># Installation</p>
-<p>Clone the git repository to your local directory: ‘git clone <a class="reference external" href="https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling">https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling</a>’ Set the correct working directory: ‘cd PK_modelling’ We recommend then creating and activating a virtual environment ‘python 3 venv venv’ ‘source venv/bin/activate’ The project dependencies can then be installed via pip </p>
-<blockquote>
-<div><p><cite>pip install oxbiodtp-7-PK-modelling</cite> OR ‘pip install -r requirements.txt’ (this will also install modules required for development)’ </p>
-</div></blockquote>
-<p>Execute the main file to run the programme <cite>python -m pk_model_main_pipeline.py</cite> </p>
-<p># Runtime</p>
-<p>The model will then pose a series of questions, to be answered using the command line. An example runscript is provided below:</p>
-<p>How many models would you like to test? 1 What kind of models do you want to build? (intravenous bolous (ib) / subcutaneous (sc)): ib What compound or drug are you using? paracetamol How is the dose delivered? Constantly over time (c), Instantaneously (i) or Repeated instantaneous doses (r): i What is the mass of the dose of paracetamol that you want to test? (units in ng): 500 What time period would you like to simluate the model? (units in hours): 24 What interval time would you like in the simulation? (units in hours): 1 What is the clearance rate? (units in ng/hour): 50 Enter volume (L), transition rate (ng/hour) for the main compartment (all seperated by spaces - eg: 5 25 ): 7 50 How many peripheral compartments do you want to test?: 1 Enter volume (L), transition rate (ng/hour) of the compartment (all seperated by spaces - eg: 5 25): 2 25 Please enter the name of the compartment (please ensure correct spelling): heart Would you like to generate a graph? (Y/N): y</p>
-<p>This should produce a plot of the distribution of paracetamol between the main compartment and the heart, and save the resulting .csv in teh data directory.</p>
 </section>
 <section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
