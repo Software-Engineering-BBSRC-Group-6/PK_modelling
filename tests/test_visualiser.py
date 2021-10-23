@@ -31,8 +31,8 @@ def test_collate_data():
     data files have been included in the collated list.
     '''
 
-    filesnames = [['test_json_ib.json', 'test_csv.csv'],
-                  ['test_json_sc.json', './test_csv.csv']]
+    filesnames = [['/home/runner/work/PK_modelling/PK_modelling/tests/test_json_ib.json', '/home/runner/work/PK_modelling/PK_modelling/tests/test_csv.csv'],
+                  ['/home/runner/work/PK_modelling/PK_modelling/tests/test_json_sc.json', '/home/runner/work/PK_modelling/PK_modelling/tests//test_csv.csv']]
 
     assert len(collate_data(filesnames)) == len(filesnames)
 
