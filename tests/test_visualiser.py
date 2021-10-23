@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
 from pk_model.visualiser import single_plot_data, collate_data, multiplot
-
+from tests import test_json_ib, test_json_sc, test_csv
 
 print('Running tests on visualiser script')
 
@@ -13,8 +13,8 @@ def test_single_plot_data():
     dictionary, numpy array, integer, integer.
     '''
     
-    json_file = 'test_json_ib.json'
-    csv_file = 'test_csv.csv'
+    json_file = test_json_ib
+    csv_file = test_csv
 
     assert len(single_plot_data(json_file, csv_file)) == 4
     assert type(single_plot_data(json_file, csv_file)[0]) == dict
