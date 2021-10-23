@@ -34,8 +34,8 @@ def generate_times(tmax, check_interval):
 def generate_compartments(parameterdict):
     """Turns a list of compartment parameters into a set of compartment objects.
 
-    :param refcmpts:
-    :type refcmpts:
+    :param parameterdict: Dictionary containing a list with key 'compartments', formatted as [Volume Transition Rate Type Name], and a second key 'model_type' which is either 'ib' or 'sc'.
+    :type parameterdict: dictionary
     """
 
     refcmpts = parameterdict['compartments']
@@ -60,7 +60,7 @@ def generate_compartments(parameterdict):
                 raise ValueError("Can't have two subcompartments.")
             else:
                 subcmpt = Compartment(cmpt[0], cmpt[1])
-    
+
     if 'subcmpt' not in locals():
         subcmpt = None
 
@@ -70,7 +70,7 @@ def generate_compartments(parameterdict):
 def get_solution(model, subcmpt, maincmpt,
                  peripherals, dose, clearance, times):
     """Finds solution of drug dosage over time for a given set of compartments, dose and clearance rate
-    
+
     :param model: the input model, subcutaneous (sc) or IV bolus (ib)
     :type model: string
     :param subcompt: subcompartment
@@ -101,7 +101,15 @@ def get_solution(model, subcmpt, maincmpt,
 
 
 def build_and_solve_model(filename, dosing_function):
-    """Write this docstring.
+    """Opens a file containing model parameters, builds a model, solves it, and writes the output to file.
+
+    :param filename: Name of .json file containing program parameters (see ux for details).
+    :type filename: string
+    :param dosing_function: Describes the dosing protocol as a function of time (in hours)
+    :type dosing_function: function object
+
+    :return datafile: Name of the file where the solution is stored.
+    :type datafile: string
     """
     jsonfile = open(filename,)
     pdict = json.load(jsonfile)
