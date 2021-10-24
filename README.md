@@ -57,14 +57,15 @@ Clone the git repository to your local directory: \
 Set the correct working directory: \
 'cd PK_modelling' \
 We recommend then creating and activating a virtual environment \
-'python 3 venv venv' \
+'python3 -m venv venv' \
 'source venv/bin/activate' \
+'pip install --upgrade pip' \
 The project dependencies can then be installed via pip \
  `pip install oxbiodtp-7-PK-modelling` \
  OR \
  'pip install -r requirements.txt' (this will also install modules required for development)' \
 Execute the main file to run the programme \
-`python -m pk_model_main_pipeline.py` \
+`python3 -m pk_model_main_pipeline.py` \
 
 # Runtime
 
