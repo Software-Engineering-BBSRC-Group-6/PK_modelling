@@ -1,0 +1,1 @@
+{"model_type": "sc", "compound": "lsd", "dose_type": "i", "dose": null, "dose_mass": 50.0, "time_dose": null, "num_dose": null, "len_assay": 72.0, "len_interval": 0.25, "clearance": 5.0, "compartments": [[5.0, 3.5, "Sub"], [10.0, 7.0, "Main"], [5.0, 3.5, "Peripheral", "brain"]], "vis": "y", "curr_datetime": "1635086493.918184"}

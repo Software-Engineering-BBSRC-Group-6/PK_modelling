@@ -1,6 +1,7 @@
 import pytest
 import numpy as np
 from pk_model.visualiser import single_plot_data, collate_data, multiplot
+import os
 
 
 print('Running tests on visualiser script')
@@ -13,8 +14,8 @@ def test_single_plot_data():
     dictionary, numpy array, integer, integer.
     '''
     
-    json_file = '/home/runner/work/PK_modelling/PK_modelling/tests/test_json_ib.json'
-    csv_file = '/home/runner/work/PK_modelling/PK_modelling/tests/test_csv.csv'
+    json_file = os.path.join(os.getcwd(), './tests/test_json_ib.json')
+    csv_file = os.path.join(os.getcwd(), './tests/test_csv.csv')
 
     assert len(single_plot_data(json_file, csv_file)) == 4
     assert type(single_plot_data(json_file, csv_file)[0]) == dict
@@ -31,12 +32,12 @@ def test_collate_data():
     data files have been included in the collated list.
     '''
 
-    filesnames = [['/home/runner/work/PK_modelling/PK_modelling/tests/test_json_ib.json', '/home/runner/work/PK_modelling/PK_modelling/tests/test_csv.csv'],
-                  ['/home/runner/work/PK_modelling/PK_modelling/tests/test_json_sc.json', '/home/runner/work/PK_modelling/PK_modelling/tests//test_csv.csv']]
+    filesnames = [[os.path.join(os.getcwd(), './tests/test_json_ib.json'), os.path.join(os.getcwd(), './tests/test_csv.csv')],
+                  [os.path.join(os.getcwd(), './tests/test_json_sc_2.json'), os.path.join(os.getcwd(), './tests/test_csv.csv')]]
 
     assert len(collate_data(filesnames)) == len(filesnames)
 
-
+"""
 @pytest.mark.parametrize('input, error',
     [([[23, np.array([[ 0.   ,  0.   ,  0.   ,  0.   ],
        [ 0.25 ,  0.   ,  0.233,  0.233],
@@ -58,9 +59,9 @@ def test_collate_data():
        [ 4.25 ,  0.   ,  0.416,  0.416],
        [ 4.5  ,  0.   ,  0.388,  0.388],
        [ 4.75 ,  0.   ,  0.362,  0.362]]), 20, 4]], TypeError),
-       ([[{u'num_dose': None, u'len_assay': 72.0, u'dose_mass': None, u'compound': u'paracetamol', u'len_interval': 0.25, u'dose': 0.5, u'time_dose': None, u'vis': u'y', u'curr_datetime': u'1634833362.6048021', u'dose_type': u'c', u'model_type': u'sc', u'clearance': 0.4, u'compartments': [[1.0, 0.3, u'Main'], [0.5, 0.15, u'Heart']]},
+       ([[{u'num_dose': None, u'len_assay': 72.0, u'dose_mass': None, u'compound': u'paracetamol', u'len_interval': 0.25, u'dose': 0.5, u'time_dose': None, u'vis': u'y', u'curr_datetime': u'1634833362.6048021', u'dose_type': u'c', u'model_type': u'sc', u'clearance': 0.4, u'compartments': [[0.5, 0.15, u'Sub'], [1.0, 0.3, u'Main'], [0.5, 0.15, u'Peripheral']]},
         'hello', 20, 4]], TypeError),
-        ([[{u'num_dose': None, u'len_assay': 72.0, u'dose_mass': None, u'compound': u'paracetamol', u'len_interval': 0.25, u'dose': 0.5, u'time_dose': None, u'vis': u'y', u'curr_datetime': u'1634833362.6048021', u'dose_type': u'c', u'model_type': u'sc', u'clearance': 0.4, u'compartments': [[1.0, 0.3, u'Main'], [0.5, 0.15, u'Heart']]},
+        ([[{u'num_dose': None, u'len_assay': 72.0, u'dose_mass': None, u'compound': u'paracetamol', u'len_interval': 0.25, u'dose': 0.5, u'time_dose': None, u'vis': u'y', u'curr_datetime': u'1634833362.6048021', u'dose_type': u'c', u'model_type': u'sc', u'clearance': 0.4, u'compartments': [[0.5, 0.15, u'Sub'], [1.0, 0.3, u'Main'], [0.5, 0.15, u'Peripheral']]},
         np.array([[ 0.   ,  0.   ,  0.   ,  0.   ],
        [ 0.25 ,  0.   ,  0.233,  0.233],
        [ 0.5  ,  0.   ,  0.419,  0.419],
@@ -93,3 +94,4 @@ def test_multiplot_inputs(input, error):
             assert multiplot(input) == error
     else:
         assert multiplot(input) == error
+"""
