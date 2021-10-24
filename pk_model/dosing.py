@@ -44,13 +44,10 @@ class InstantDose(Dose):
             raise ValueError('Number of applications must be a positive integer.')
 
         def protocol(t):
-            
+
             for t0 in apply_times:
 
-                if abs(t-t0) < (1 / 120) and (t < 1/60):
-                    dose = self.mass * 60
-
-                elif abs(t-t0) < 1/120:
+                if abs(t-t0) < (1 / 120) or (t < 1/60):
                     dose = self.mass * 60
 
                 else:
